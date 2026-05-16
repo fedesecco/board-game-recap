@@ -34,7 +34,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '1.18',
     year: 2012,
     accentColor: '#b44b66',
-    coverUrl: '/assets/games/love-letter.svg',
+    coverUrl: '/assets/games/love-letter.jpg',
   }),
   buildGame({
     bggId: 237182,
@@ -50,7 +50,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '3.84',
     year: 2018,
     accentColor: '#c06e34',
-    coverUrl: '/assets/games/root.svg',
+    coverUrl: '/assets/games/root.jpg',
   }),
   buildGame({
     bggId: 262712,
@@ -66,7 +66,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '2.69',
     year: 2019,
     accentColor: '#5b4b8a',
-    coverUrl: '/assets/games/res-arcana.svg',
+    coverUrl: '/assets/games/res-arcana.jpg',
   }),
   buildGame({
     bggId: 431248,
@@ -82,7 +82,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '1.40',
     year: 2025,
     accentColor: '#8d5d2a',
-    coverUrl: '/assets/games/per-la-corona.svg',
+    coverUrl: '/assets/games/per-la-corona.jpg',
   }),
   buildGame({
     bggId: 418059,
@@ -98,7 +98,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '3.82',
     year: 2024,
     accentColor: '#3d5d91',
-    coverUrl: '/assets/games/seti.svg',
+    coverUrl: '/assets/games/seti.jpg',
   }),
   buildGame({
     bggId: 191894,
@@ -114,7 +114,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '1.06',
     year: 2016,
     accentColor: '#4aa39b',
-    coverUrl: '/assets/games/imagine.svg',
+    coverUrl: '/assets/games/imagine.jpg',
   }),
   buildGame({
     bggId: 403441,
@@ -130,7 +130,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '2.93',
     year: 2024,
     accentColor: '#d56b7f',
-    coverUrl: '/assets/games/windmill-valley.svg',
+    coverUrl: '/assets/games/windmill-valley.jpg',
   }),
   buildGame({
     bggId: 440007,
@@ -146,7 +146,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '3.04',
     year: 2025,
     accentColor: '#50724a',
-    coverUrl: '/assets/games/the-druids-of-edora.svg',
+    coverUrl: '/assets/games/the-druids-of-edora.jpg',
   }),
   buildGame({
     bggId: null,
@@ -162,7 +162,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: 'n/d',
     year: 2026,
     accentColor: '#7d6840',
-    coverUrl: '/assets/games/carnuta.svg',
+    coverUrl: '/assets/games/carnuta.jpg',
   }),
   buildGame({
     bggId: 68448,
@@ -418,7 +418,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: 'n/d',
     year: 2025,
     accentColor: '#cf4f7d',
-    coverUrl: '/assets/games/disco-draw.svg',
+    coverUrl: '/assets/games/disco-draw.jpg',
   }),
   buildGame({
     bggId: 199042,
@@ -578,7 +578,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '1.66',
     year: 2022,
     accentColor: '#5b68a0',
-    coverUrl: '/assets/games/the-wandering-towers.svg',
+    coverUrl: '/assets/games/the-wandering-towers.jpg',
   }),
   buildGame({
     bggId: 45,
