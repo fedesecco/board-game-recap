@@ -1,3 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
-
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap');
 @import 'tailwindcss';
+
+:root {
+  --bg-top: #edf4f2;
+  --bg-bottom: #dfe9ef;
+  --paper: #f9fcfb;
+  --panel-glow: radial-gradient(circle at top right, rgb(56 131 137 / 0.14), transparent 55%);
+  --text-body: #19353c;
+  --text-muted: #45636a;
+  --text-soft: #628089;
+  --accent-strong: #0f737c;
+  --line-color: rgb(17 63 72 / 0.15);
+  --font-body: 'Manrope', 'Segoe UI', sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--text-body);
+  font-family: var(--font-body);
+  background:
+    radial-gradient(circle at top left, rgb(28 135 125 / 0.08), transparent 25%),
+    linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+  background-attachment: fixed;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
