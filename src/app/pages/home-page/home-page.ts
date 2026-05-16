@@ -1,7 +1,7 @@
 import { Component, computed, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { BOARD_GAMES } from '../../data/board-games';
-import { BoardGame } from '../../models/board-game';
+import { BoardGame, Tag } from '../../models/board-game';
 
 @Component({
   selector: 'app-home-page',
@@ -13,16 +13,74 @@ export class HomePageComponent {
   protected readonly games = BOARD_GAMES;
   protected readonly query = signal('');
   protected readonly filtersOpen = signal(false);
+  protected readonly tagsOpen = signal(false);
   protected readonly playersFilter = signal('');
   protected readonly bestPlayersFilter = signal('');
   protected readonly durationFilter = signal('');
   protected readonly complexityFilter = signal('');
+  protected readonly selectedTags = signal<Tag[]>([]);
+  protected readonly tagLabels: Record<Tag, string> = {
+    [Tag.Play26]: 'Play Bologna 2026',
+    [Tag.Cooperative]: 'Coop',
+    [Tag.EngineBuilding]: 'Engine building',
+    [Tag.Euro]: 'Euro',
+    [Tag.American]: 'American',
+    [Tag.PartyGame]: 'Party',
+    [Tag.Abstract]: 'Abstract',
+  };
+  protected readonly tagOptions = computed(() => {
+    const seen = new Set<Tag>();
+    const ordered: Tag[] = [];
+
+    for (const preferred of [
+      Tag.Play26,
+      Tag.Cooperative,
+      Tag.EngineBuilding,
+      Tag.Euro,
+      Tag.American,
+      Tag.PartyGame,
+      Tag.Abstract,
+    ]) {
+      if (this.games.some((game) => game.tags.includes(preferred))) {
+        seen.add(preferred);
+        ordered.push(preferred);
+      }
+    }
+
+    const rest = this.games
+      .flatMap((game) => game.tags)
+      .filter((tag) => !seen.has(tag))
+      .sort((left, right) => this.tagLabels[left].localeCompare(this.tagLabels[right], 'it'));
+
+    for (const tag of rest) {
+      if (!seen.has(tag)) {
+        seen.add(tag);
+        ordered.push(tag);
+      }
+    }
+
+    return ordered;
+  });
+  protected readonly tagTriggerLabel = computed(() => {
+    const selected = this.selectedTags();
+
+    if (selected.length === 0) {
+      return 'Tutti';
+    }
+
+    if (selected.length === 1) {
+      return this.tagLabels[selected[0]];
+    }
+
+    return `${selected.length} selezionati`;
+  });
   protected readonly filteredGames = computed(() => {
     const normalizedQuery = this.query().trim().toLowerCase();
     const playersFilter = Number(this.playersFilter() || 0);
     const bestPlayersFilter = Number(this.bestPlayersFilter() || 0);
     const durationFilter = Number(this.durationFilter() || 0);
     const complexityFilter = Number(this.complexityFilter() || 0);
+    const selectedTags = this.selectedTags();
 
     return [...this.games]
       .filter((game) => {
@@ -46,6 +104,10 @@ export class HomePageComponent {
           return false;
         }
 
+        if (selectedTags.length > 0 && !selectedTags.every((tag) => game.tags.includes(tag))) {
+          return false;
+        }
+
         return true;
       })
       .sort((left: BoardGame, right: BoardGame) => left.title.localeCompare(right.title, 'it'));
@@ -58,6 +120,10 @@ export class HomePageComponent {
 
   protected toggleFilters(): void {
     this.filtersOpen.update((open) => !open);
+  }
+
+  protected toggleTagsOpen(): void {
+    this.tagsOpen.update((open) => !open);
   }
 
   protected updatePlayersFilter(event: Event): void {
@@ -78,6 +144,16 @@ export class HomePageComponent {
   protected updateComplexityFilter(event: Event): void {
     const target = event.target as HTMLSelectElement;
     this.complexityFilter.set(target.value);
+  }
+
+  protected toggleTag(tag: Tag): void {
+    this.selectedTags.update((tags) =>
+      tags.includes(tag) ? tags.filter((currentTag) => currentTag !== tag) : [...tags, tag],
+    );
+  }
+
+  protected hasTagSelected(tag: Tag): boolean {
+    return this.selectedTags().includes(tag);
   }
 
   protected getGameLabel(title: string): string {

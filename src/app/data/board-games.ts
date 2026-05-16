@@ -1,13 +1,91 @@
-import { BoardGame } from '../models/board-game';
+import { BoardGame, Tag } from '../models/board-game';
 import { BOARD_GAME_RECAPS } from './board-game-recaps';
 
 // Snapshot statico dei dati, copiato una volta da BGG e fonti secondarie il 2026-05-16.
 
-function buildGame(game: Omit<BoardGame, 'players' | 'duration' | 'summary' | 'quickNotes' | 'recapSections'>) {
+const PLAY_2026_SLUGS = new Set([
+  'root',
+  'res-arcana',
+  'per-la-corona',
+  'seti',
+  'imagine',
+  '7-wonders',
+  '7-wonders-duel',
+  'azul',
+  'bang',
+  'carcassonne',
+  'concept',
+  'cryptid',
+  'dixit',
+  'dune-imperium',
+  'harry-potter-hogwarts-battle',
+  'heat-pedal-to-the-metal',
+  'hues-and-cues',
+  'drama-lama',
+  'insalata-di-punti',
+  'orleans',
+  'camel-up',
+  'the-wandering-towers',
+  'perudo',
+  'procioni-in-cassa-4',
+  'sagrada',
+  'seasons',
+  'scythe',
+  'sky-team',
+  'talisman',
+  'terraforming-mars',
+  'unlock',
+  'bomb-busters',
+]);
+
+const CATEGORY_TAGS: Record<string, Tag[]> = {
+  'Abstract strategy': [Tag.Abstract],
+  Adventure: [Tag.American],
+  'Asymmetric strategy': [Tag.American],
+  'Bag building euro': [Tag.Euro, Tag.EngineBuilding],
+  Betting: [Tag.PartyGame],
+  Bluffing: [Tag.PartyGame],
+  'Card drafting': [Tag.Euro],
+  'Card game': [Tag.PartyGame],
+  Cooperative: [Tag.Cooperative, Tag.American],
+  'Cooperative deck building': [Tag.Cooperative, Tag.EngineBuilding, Tag.American],
+  'Cooperative fantasy': [Tag.Cooperative, Tag.American],
+  'Cooperative puzzle': [Tag.Cooperative],
+  'Cooperative strategy': [Tag.Cooperative],
+  'Deck building': [Tag.EngineBuilding],
+  Deduction: [Tag.Abstract],
+  'Deduction co-op': [Tag.Cooperative],
+  'Dice crafting': [Tag.Euro, Tag.EngineBuilding],
+  'Dice drafting': [Tag.Abstract, Tag.Euro],
+  'Dice placement': [Tag.Euro],
+  'Engine building': [Tag.Euro, Tag.EngineBuilding],
+  'Family card game': [Tag.PartyGame],
+  'Family strategy': [Tag.Abstract],
+  'Party card game': [Tag.PartyGame],
+  'Party game': [Tag.PartyGame],
+  Racing: [Tag.American],
+  'Role selection': [Tag.Euro],
+  'Social deduction': [Tag.PartyGame],
+  'Strategy euro': [Tag.Euro],
+  'Tableau building': [Tag.Euro, Tag.EngineBuilding],
+  'Tile placement': [Tag.Abstract, Tag.Euro],
+};
+
+function buildGame(
+  game: Omit<
+    BoardGame,
+    'players' | 'duration' | 'summary' | 'quickNotes' | 'recapSections' | 'tags'
+  >,
+) {
   const recap = BOARD_GAME_RECAPS[game.slug];
+  const tags = [
+    ...(CATEGORY_TAGS[game.category] ?? []),
+    ...(PLAY_2026_SLUGS.has(game.slug) ? [Tag.Play26] : []),
+  ].filter((tag, index, allTags) => allTags.indexOf(tag) === index);
 
   return {
     ...game,
+    tags,
     players:
       game.minPlayers !== null && game.maxPlayers !== null
         ? `${game.minPlayers}-${game.maxPlayers} giocatori`

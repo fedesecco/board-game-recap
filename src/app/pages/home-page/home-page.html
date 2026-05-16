@@ -84,6 +84,41 @@
           <option value="4">4.0</option>
         </select>
       </label>
+
+      <div class="filter-field filter-field--tags">
+        <span>Tag</span>
+        <button
+          class="tag-select-trigger"
+          type="button"
+          [attr.aria-expanded]="tagsOpen()"
+          aria-controls="tag-filter-panel"
+          (click)="toggleTagsOpen()"
+        >
+          <span>{{ tagTriggerLabel() }}</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M6.47 8.97a.75.75 0 0 1 1.06 0L12 13.44l4.47-4.47a.75.75 0 1 1 1.06 1.06l-5 5a.75.75 0 0 1-1.06 0l-5-5a.75.75 0 0 1 0-1.06Z"
+            />
+          </svg>
+        </button>
+
+        @if (tagsOpen()) {
+          <div id="tag-filter-panel" class="tag-filter-panel" aria-label="Filtro tag">
+            <div class="tag-filter-list">
+              @for (tag of tagOptions(); track tag) {
+                <label class="tag-filter-option">
+                  <input
+                    type="checkbox"
+                    [checked]="hasTagSelected(tag)"
+                    (change)="toggleTag(tag)"
+                  />
+                  <span class="tag-filter-chip">{{ tagLabels[tag] }}</span>
+                </label>
+              }
+            </div>
+          </div>
+        }
+      </div>
     </div>
   </section>
 
