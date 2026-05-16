@@ -19,73 +19,6 @@ function buildGame(game: Omit<BoardGame, 'players' | 'duration' | 'summary' | 'q
   } satisfies BoardGame;
 }
 
-function getCoverInitials(title: string): string {
-  return title
-    .replace(/[^\p{L}\p{N} ]+/gu, ' ')
-    .split(/\s+/)
-    .filter(Boolean)
-    .slice(0, 3)
-    .map((word) => word[0]?.toUpperCase() ?? '')
-    .join('');
-}
-
-function buildPlaceholderCover(title: string, accentColor: string): string {
-  const safeTitle = title
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;');
-  const initials = getCoverInitials(title);
-  const svg = `
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 720" role="img" aria-label="${safeTitle}">
-      <defs>
-        <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
-          <stop offset="0%" stop-color="${accentColor}" />
-          <stop offset="100%" stop-color="#0f1720" />
-        </linearGradient>
-      </defs>
-      <rect width="600" height="720" rx="44" fill="url(#bg)" />
-      <circle cx="506" cy="98" r="96" fill="rgba(255,255,255,0.12)" />
-      <circle cx="104" cy="628" r="126" fill="rgba(255,255,255,0.08)" />
-      <text
-        x="56"
-        y="140"
-        fill="#f8fafc"
-        font-family="Arial, Helvetica, sans-serif"
-        font-size="22"
-        font-weight="700"
-        letter-spacing="6"
-      >
-        BOARD GAME RECAP
-      </text>
-      <text
-        x="56"
-        y="392"
-        fill="#ffffff"
-        font-family="Arial, Helvetica, sans-serif"
-        font-size="120"
-        font-weight="700"
-        letter-spacing="4"
-      >
-        ${initials}
-      </text>
-      <text
-        x="56"
-        y="610"
-        fill="#f8fafc"
-        font-family="Arial, Helvetica, sans-serif"
-        font-size="26"
-        font-weight="700"
-        textLength="488"
-        lengthAdjust="spacingAndGlyphs"
-      >
-        ${safeTitle}
-      </text>
-    </svg>
-  `.trim();
-
-  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
-}
-
 export const BOARD_GAMES: BoardGame[] = [
   buildGame({
     bggId: 129622,
@@ -261,7 +194,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '2.24',
     year: 2015,
     accentColor: '#9f6133',
-    coverUrl: buildPlaceholderCover('7 Wonders Duel', '#9f6133'),
+    coverUrl: '/assets/games/7-wonders-duel.jpg',
   }),
   buildGame({
     bggId: 230802,
@@ -277,7 +210,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '1.76',
     year: 2017,
     accentColor: '#2d7997',
-    coverUrl: buildPlaceholderCover('Azul', '#2d7997'),
+    coverUrl: '/assets/games/azul.jpg',
   }),
   buildGame({
     bggId: 3955,
@@ -293,7 +226,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '1.63',
     year: 2002,
     accentColor: '#9d4a2f',
-    coverUrl: buildPlaceholderCover('BANG!', '#9d4a2f'),
+    coverUrl: '/assets/games/bang.jpg',
   }),
   buildGame({
     bggId: 822,
@@ -309,7 +242,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '1.90',
     year: 2000,
     accentColor: '#8b6a3d',
-    coverUrl: buildPlaceholderCover('Carcassonne', '#8b6a3d'),
+    coverUrl: '/assets/games/carcassonne.jpg',
   }),
   buildGame({
     bggId: 147151,
@@ -325,7 +258,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '1.35',
     year: 2013,
     accentColor: '#5c8b66',
-    coverUrl: buildPlaceholderCover('Concept', '#5c8b66'),
+    coverUrl: '/assets/games/concept.jpg',
   }),
   buildGame({
     bggId: 246784,
@@ -341,7 +274,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '2.16',
     year: 2018,
     accentColor: '#54696f',
-    coverUrl: buildPlaceholderCover('Cryptid', '#54696f'),
+    coverUrl: '/assets/games/cryptid.jpg',
   }),
   buildGame({
     bggId: 39856,
@@ -357,7 +290,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '1.19',
     year: 2008,
     accentColor: '#8b5ba7',
-    coverUrl: buildPlaceholderCover('Dixit', '#8b5ba7'),
+    coverUrl: '/assets/games/dixit.jpg',
   }),
   buildGame({
     bggId: 194594,
@@ -389,7 +322,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '3.03',
     year: 2020,
     accentColor: '#9e7040',
-    coverUrl: buildPlaceholderCover('Dune: Imperium', '#9e7040'),
+    coverUrl: '/assets/games/dune-imperium.jpg',
   }),
   buildGame({
     bggId: 131357,
@@ -501,7 +434,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '2.08',
     year: 2016,
     accentColor: '#7b4e2f',
-    coverUrl: buildPlaceholderCover('Harry Potter Hogwarts Battle', '#7b4e2f'),
+    coverUrl: '/assets/games/harry-potter-hogwarts-battle.jpg',
   }),
   buildGame({
     bggId: 366013,
@@ -517,7 +450,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '2.18',
     year: 2022,
     accentColor: '#bc5334',
-    coverUrl: buildPlaceholderCover('Heat: Pedal to the Metal', '#bc5334'),
+    coverUrl: '/assets/games/heat-pedal-to-the-metal.jpg',
   }),
   buildGame({
     bggId: 302520,
@@ -533,7 +466,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '1.18',
     year: 2020,
     accentColor: '#7c5ce0',
-    coverUrl: buildPlaceholderCover('Hues and Cues', '#7c5ce0'),
+    coverUrl: '/assets/games/hues-and-cues.jpg',
   }),
   buildGame({
     bggId: 416851,
@@ -597,7 +530,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '1.15',
     year: 2019,
     accentColor: '#5e9b4b',
-    coverUrl: buildPlaceholderCover('Insalata di Punti', '#5e9b4b'),
+    coverUrl: '/assets/games/insalata-di-punti.jpg',
   }),
   buildGame({
     bggId: 164928,
@@ -613,7 +546,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '3.06',
     year: 2014,
     accentColor: '#8a6c44',
-    coverUrl: buildPlaceholderCover('Orleans', '#8a6c44'),
+    coverUrl: '/assets/games/orleans.jpg',
   }),
   buildGame({
     bggId: 260605,
@@ -661,7 +594,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '1.33',
     year: 1993,
     accentColor: '#7f3a2e',
-    coverUrl: buildPlaceholderCover('Perudo', '#7f3a2e'),
+    coverUrl: '/assets/games/perudo.jpg',
   }),
   buildGame({
     bggId: null,
@@ -677,7 +610,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: 'n/d',
     year: 2024,
     accentColor: '#5c4c42',
-    coverUrl: buildPlaceholderCover('Procioni in Cassa 4', '#5c4c42'),
+    coverUrl: '/assets/games/procioni-in-cassa-4.jpg',
   }),
   buildGame({
     bggId: 199561,
@@ -693,7 +626,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '1.90',
     year: 2017,
     accentColor: '#6c79b4',
-    coverUrl: buildPlaceholderCover('Sagrada', '#6c79b4'),
+    coverUrl: '/assets/games/sagrada.jpg',
   }),
   buildGame({
     bggId: 108745,
@@ -709,7 +642,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '2.75',
     year: 2012,
     accentColor: '#4d7aa5',
-    coverUrl: buildPlaceholderCover('Seasons', '#4d7aa5'),
+    coverUrl: '/assets/games/seasons.jpg',
   }),
   buildGame({
     bggId: 169786,
@@ -725,7 +658,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '3.46',
     year: 2016,
     accentColor: '#6d4f46',
-    coverUrl: buildPlaceholderCover('Scythe', '#6d4f46'),
+    coverUrl: '/assets/games/scythe.jpg',
   }),
   buildGame({
     bggId: 373106,
@@ -741,7 +674,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '2.05',
     year: 2023,
     accentColor: '#4a6f8f',
-    coverUrl: buildPlaceholderCover('Sky Team', '#4a6f8f'),
+    coverUrl: '/assets/games/sky-team.jpg',
   }),
   buildGame({
     bggId: 27627,
@@ -757,7 +690,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '2.43',
     year: 2007,
     accentColor: '#6a4a7d',
-    coverUrl: buildPlaceholderCover('Talisman', '#6a4a7d'),
+    coverUrl: '/assets/games/talisman.jpg',
   }),
   buildGame({
     bggId: 167791,
@@ -773,7 +706,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '3.26',
     year: 2016,
     accentColor: '#a05d37',
-    coverUrl: buildPlaceholderCover('Terraforming Mars', '#a05d37'),
+    coverUrl: '/assets/games/terraforming-mars.jpg',
   }),
   buildGame({
     bggId: 213460,
@@ -789,7 +722,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '1.61',
     year: 2017,
     accentColor: '#3e657a',
-    coverUrl: buildPlaceholderCover('Unlock!', '#3e657a'),
+    coverUrl: '/assets/games/unlock.jpg',
   }),
 ];
 

@@ -35,35 +35,63 @@
   box-shadow: 0 10px 30px rgb(14 33 38 / 0.08);
 }
 
-.filters-row {
-  display: flex;
-  gap: 0.55rem;
+.filters-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   margin-top: 0.55rem;
-  padding-bottom: 0.15rem;
-  overflow-x: auto;
-  scrollbar-width: none;
+  padding: 0.64rem 0.88rem;
+  border: 1px solid var(--line-color);
+  border-radius: 999px;
+  color: var(--text-body);
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 700;
+  background: rgb(255 255 255 / 0.8);
+  box-shadow: 0 8px 20px rgb(14 33 38 / 0.06);
 }
 
-.filters-row::-webkit-scrollbar {
+.filters-toggle svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  fill: var(--accent-strong);
+}
+
+.filters-row {
   display: none;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+  margin-top: 0.55rem;
+  padding: 0.2rem 0 0.1rem;
+}
+
+.filters-row--open {
+  display: grid;
 }
 
 .filter-field {
-  display: flex;
-  flex: 0 0 auto;
+  display: grid;
+  gap: 0.28rem;
 }
 
 .filter-field span {
-  display: none;
+  display: block;
+  padding-left: 0.12rem;
+  color: var(--text-soft);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .filter-field select {
-  min-width: 8.1rem;
+  min-width: 0;
+  width: 100%;
   border: 1px solid var(--line-color);
-  border-radius: 999px;
-  padding: 0.62rem 0.85rem;
+  border-radius: 0.9rem;
+  padding: 0.68rem 0.78rem;
   color: var(--text-body);
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   font-family: inherit;
   background: rgb(255 255 255 / 0.76);
   box-shadow: 0 8px 20px rgb(14 33 38 / 0.06);
@@ -235,10 +263,14 @@
     padding-inline: 1.5rem;
   }
 
+  .filters-toggle {
+    display: none;
+  }
+
   .filters-row {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    overflow: visible;
+    padding: 0;
   }
 
   .filter-field {
@@ -247,18 +279,11 @@
   }
 
   .filter-field span {
-    display: block;
     padding-left: 0.15rem;
-    color: var(--text-soft);
     font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
   }
 
   .filter-field select {
-    width: 100%;
-    min-width: 0;
     border-radius: 0.95rem;
     padding: 0.78rem 0.9rem;
     font-size: 1rem;

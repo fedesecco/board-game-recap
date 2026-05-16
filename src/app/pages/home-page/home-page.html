@@ -14,7 +14,27 @@
       />
     </label>
 
-    <div class="filters-row" aria-label="Filtri catalogo">
+    <button
+      class="filters-toggle"
+      type="button"
+      [attr.aria-expanded]="filtersOpen()"
+      aria-controls="catalog-filters"
+      (click)="toggleFilters()"
+    >
+      <span>Filtri</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M3.75 6.75A.75.75 0 0 1 4.5 6h15a.75.75 0 0 1 0 1.5h-15a.75.75 0 0 1-.75-.75Zm3 5.25a.75.75 0 0 1 .75-.75h9a.75.75 0 0 1 0 1.5h-9a.75.75 0 0 1-.75-.75Zm3 5.25a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 0 1.5h-3a.75.75 0 0 1-.75-.75Z"
+        />
+      </svg>
+    </button>
+
+    <div
+      id="catalog-filters"
+      class="filters-row"
+      [class.filters-row--open]="filtersOpen()"
+      aria-label="Filtri catalogo"
+    >
       <label class="filter-field">
         <span>Giocatori</span>
         <select [value]="playersFilter()" (change)="updatePlayersFilter($event)">

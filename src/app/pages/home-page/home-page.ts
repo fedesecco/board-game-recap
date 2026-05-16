@@ -12,6 +12,7 @@ import { BoardGame } from '../../models/board-game';
 export class HomePageComponent {
   protected readonly games = BOARD_GAMES;
   protected readonly query = signal('');
+  protected readonly filtersOpen = signal(false);
   protected readonly playersFilter = signal('');
   protected readonly bestPlayersFilter = signal('');
   protected readonly durationFilter = signal('');
@@ -53,6 +54,10 @@ export class HomePageComponent {
   protected updateQuery(event: Event): void {
     const target = event.target as HTMLInputElement;
     this.query.set(target.value);
+  }
+
+  protected toggleFilters(): void {
+    this.filtersOpen.update((open) => !open);
   }
 
   protected updatePlayersFilter(event: Event): void {
