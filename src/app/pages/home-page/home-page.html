@@ -73,22 +73,50 @@
         </select>
       </label>
 
-      <label class="filter-field">
-        <span>Difficolta max</span>
-        <select [value]="complexityFilter()" (change)="updateComplexityFilter($event)">
-          <option value="">Qualsiasi</option>
-          <option value="1.5">1.5</option>
-          <option value="2">2.0</option>
-          <option value="2.5">2.5</option>
-          <option value="3">3.0</option>
-          <option value="4">4.0</option>
-        </select>
-      </label>
+      <div class="filter-field filter-field--complexity">
+        <span>Complessità</span>
+        <button
+          class="filter-select-trigger"
+          type="button"
+          [attr.aria-expanded]="complexityOpen()"
+          aria-controls="complexity-filter-panel"
+          (click)="toggleComplexityOpen()"
+        >
+          <span>{{ complexityTriggerLabel() }}</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M6.47 8.97a.75.75 0 0 1 1.06 0L12 13.44l4.47-4.47a.75.75 0 1 1 1.06 1.06l-5 5a.75.75 0 0 1-1.06 0l-5-5a.75.75 0 0 1 0-1.06Z"
+            />
+          </svg>
+        </button>
+
+        @if (complexityOpen()) {
+          <div
+            id="complexity-filter-panel"
+            class="filter-select-panel"
+            aria-label="Filtro difficolta"
+          >
+            <div class="filter-select-list">
+              @for (band of complexityOptions; track band) {
+                <label class="filter-select-option">
+                  <input
+                    type="checkbox"
+                    class="filter-select-checkbox"
+                    [checked]="hasComplexityBandSelected(band)"
+                    (change)="toggleComplexityBand(band)"
+                  />
+                  <span class="filter-select-label">{{ complexityLabels[band] }}</span>
+                </label>
+              }
+            </div>
+          </div>
+        }
+      </div>
 
       <div class="filter-field filter-field--tags">
         <span>Tag</span>
         <button
-          class="tag-select-trigger"
+          class="filter-select-trigger"
           type="button"
           [attr.aria-expanded]="tagsOpen()"
           aria-controls="tag-filter-panel"
@@ -103,16 +131,17 @@
         </button>
 
         @if (tagsOpen()) {
-          <div id="tag-filter-panel" class="tag-filter-panel" aria-label="Filtro tag">
-            <div class="tag-filter-list">
+          <div id="tag-filter-panel" class="filter-select-panel" aria-label="Filtro tag">
+            <div class="filter-select-list">
               @for (tag of tagOptions(); track tag) {
-                <label class="tag-filter-option">
+                <label class="filter-select-option">
                   <input
                     type="checkbox"
+                    class="filter-select-checkbox"
                     [checked]="hasTagSelected(tag)"
                     (change)="toggleTag(tag)"
                   />
-                  <span class="tag-filter-chip">{{ tagLabels[tag] }}</span>
+                  <span class="filter-select-label">{{ tagLabels[tag] }}</span>
                 </label>
               }
             </div>
@@ -148,7 +177,7 @@
                     />
                   </svg>
                 </span>
-                <span class="fact-chip__value">{{ game.playTime }}</span>
+                <span class="fact-chip__value">{{ getPlayTimeSummary(game) }}</span>
               </span>
 
               <span
@@ -165,7 +194,10 @@
                 <span class="fact-chip__value">{{ getPlayersSummary(game) }}</span>
               </span>
 
-              <span class="fact-chip fact-chip--best" [attr.aria-label]="'Best con ' + game.bestPlayers">
+              <span
+                class="fact-chip fact-chip--best"
+                [attr.aria-label]="'Best con ' + game.bestPlayers"
+              >
                 <span class="fact-chip__icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24">
                     <path

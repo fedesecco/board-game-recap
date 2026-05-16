@@ -448,7 +448,7 @@ export const BOARD_GAMES: BoardGame[] = [
     complexity: '1.80',
     year: 2021,
     accentColor: '#3f5962',
-    coverUrl: '/assets/games/alien-fate-of-the-nostromo.jpg',
+    coverUrl: '/assets/games/alien-fate-of-the-nostromo.webp',
   }),
   buildGame({
     bggId: 347137,

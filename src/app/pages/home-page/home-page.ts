@@ -3,6 +3,8 @@ import { RouterLink } from '@angular/router';
 import { BOARD_GAMES } from '../../data/board-games';
 import { BoardGame, Tag } from '../../models/board-game';
 
+type ComplexityBand = '0-1' | '1-2' | '2-3' | '3-4' | '4+';
+
 @Component({
   selector: 'app-home-page',
   imports: [RouterLink],
@@ -14,11 +16,20 @@ export class HomePageComponent {
   protected readonly query = signal('');
   protected readonly filtersOpen = signal(false);
   protected readonly tagsOpen = signal(false);
+  protected readonly complexityOpen = signal(false);
   protected readonly playersFilter = signal('');
   protected readonly bestPlayersFilter = signal('');
   protected readonly durationFilter = signal('');
-  protected readonly complexityFilter = signal('');
+  protected readonly selectedComplexityBands = signal<ComplexityBand[]>([]);
   protected readonly selectedTags = signal<Tag[]>([]);
+  protected readonly complexityOptions: ComplexityBand[] = ['0-1', '1-2', '2-3', '3-4', '4+'];
+  protected readonly complexityLabels: Record<ComplexityBand, string> = {
+    '0-1': '0-1',
+    '1-2': '1-2',
+    '2-3': '2-3',
+    '3-4': '3-4',
+    '4+': '4+',
+  };
   protected readonly tagLabels: Record<Tag, string> = {
     [Tag.Play26]: 'Play Bologna 2026',
     [Tag.Cooperative]: 'Coop',
@@ -74,12 +85,25 @@ export class HomePageComponent {
 
     return `${selected.length} selezionati`;
   });
+  protected readonly complexityTriggerLabel = computed(() => {
+    const selected = this.selectedComplexityBands();
+
+    if (selected.length === 0) {
+      return 'Qualsiasi';
+    }
+
+    if (selected.length === 1) {
+      return this.complexityLabels[selected[0]];
+    }
+
+    return `${selected.length} selezionati`;
+  });
   protected readonly filteredGames = computed(() => {
     const normalizedQuery = this.query().trim().toLowerCase();
     const playersFilter = Number(this.playersFilter() || 0);
     const bestPlayersFilter = Number(this.bestPlayersFilter() || 0);
     const durationFilter = Number(this.durationFilter() || 0);
-    const complexityFilter = Number(this.complexityFilter() || 0);
+    const selectedComplexityBands = this.selectedComplexityBands();
     const selectedTags = this.selectedTags();
 
     return [...this.games]
@@ -100,7 +124,7 @@ export class HomePageComponent {
           return false;
         }
 
-        if (complexityFilter && !this.matchesComplexity(game, complexityFilter)) {
+        if (selectedComplexityBands.length > 0 && !this.matchesComplexityBands(game, selectedComplexityBands)) {
           return false;
         }
 
@@ -126,6 +150,10 @@ export class HomePageComponent {
     this.tagsOpen.update((open) => !open);
   }
 
+  protected toggleComplexityOpen(): void {
+    this.complexityOpen.update((open) => !open);
+  }
+
   protected updatePlayersFilter(event: Event): void {
     const target = event.target as HTMLSelectElement;
     this.playersFilter.set(target.value);
@@ -141,9 +169,14 @@ export class HomePageComponent {
     this.durationFilter.set(target.value);
   }
 
-  protected updateComplexityFilter(event: Event): void {
-    const target = event.target as HTMLSelectElement;
-    this.complexityFilter.set(target.value);
+  protected toggleComplexityBand(band: ComplexityBand): void {
+    this.selectedComplexityBands.update((bands) =>
+      bands.includes(band) ? bands.filter((currentBand) => currentBand !== band) : [...bands, band],
+    );
+  }
+
+  protected hasComplexityBandSelected(band: ComplexityBand): boolean {
+    return this.selectedComplexityBands().includes(band);
   }
 
   protected toggleTag(tag: Tag): void {
@@ -170,6 +203,16 @@ export class HomePageComponent {
 
   protected getDifficultySummary(game: BoardGame): string {
     return game.complexity === 'n/d' ? 'n/d' : game.complexity;
+  }
+
+  protected getPlayTimeSummary(game: BoardGame): string {
+    const range = this.parseTimeRange(game.playTime);
+
+    if (!range) {
+      return game.playTime;
+    }
+
+    return range.min === range.max ? `${range.max}` : `${range.min}-${range.max}`;
   }
 
   private matchesPlayerCount(game: BoardGame, targetPlayers: number): boolean {
@@ -200,24 +243,35 @@ export class HomePageComponent {
     return duration <= maxMinutes;
   }
 
-  private matchesComplexity(game: BoardGame, maxComplexity: number): boolean {
+  private matchesComplexityBands(game: BoardGame, bands: ComplexityBand[]): boolean {
     const complexity = Number.parseFloat(game.complexity);
 
     if (Number.isNaN(complexity)) {
       return false;
     }
 
-    return complexity <= maxComplexity;
+    return bands.some((band) => this.matchesComplexityBand(complexity, band));
+  }
+
+  private matchesComplexityBand(complexity: number, band: ComplexityBand): boolean {
+    switch (band) {
+      case '0-1':
+        return complexity < 1;
+      case '1-2':
+        return complexity >= 1 && complexity < 2;
+      case '2-3':
+        return complexity >= 2 && complexity < 3;
+      case '3-4':
+        return complexity >= 3 && complexity < 4;
+      case '4+':
+        return complexity >= 4;
+    }
   }
 
   private parseUpperBound(value: string): number | null {
-    const matches = value.match(/\d+/g);
+    const range = this.parseTimeRange(value);
 
-    if (!matches || matches.length === 0) {
-      return null;
-    }
-
-    return Number(matches.at(-1));
+    return range?.max ?? null;
   }
 
   private parseRange(value: string): { min: number; max: number } | null {
@@ -228,6 +282,40 @@ export class HomePageComponent {
     }
 
     const numbers = matches.map(Number);
+    return {
+      min: numbers[0],
+      max: numbers.at(-1) ?? numbers[0],
+    };
+  }
+
+  private parseTimeRange(value: string): { min: number; max: number } | null {
+    const normalized = value.trim().toLowerCase();
+    const hourMatches = [...normalized.matchAll(/(\d+(?:[.,]\d+)?)\s*h/g)];
+    const minuteMatches = [...normalized.matchAll(/(\d+(?:[.,]\d+)?)\s*(?:m|min)\b/g)];
+
+    if (hourMatches.length > 0 || minuteMatches.length > 0) {
+      const values = [
+        ...hourMatches.map((match) => Math.round(Number.parseFloat(match[1].replace(',', '.')) * 60)),
+        ...minuteMatches.map((match) => Math.round(Number.parseFloat(match[1].replace(',', '.')))),
+      ].filter((minutes) => !Number.isNaN(minutes));
+
+      if (values.length === 0) {
+        return null;
+      }
+
+      return {
+        min: values[0],
+        max: values.at(-1) ?? values[0],
+      };
+    }
+
+    const fallbackMatches = normalized.match(/\d+/g);
+
+    if (!fallbackMatches || fallbackMatches.length === 0) {
+      return null;
+    }
+
+    const numbers = fallbackMatches.map(Number);
     return {
       min: numbers[0],
       max: numbers.at(-1) ?? numbers[0],
