@@ -65,29 +65,6 @@
   text-transform: uppercase;
 }
 
-.tagline,
-.summary,
-.reminder-note {
-  max-width: 54rem;
-}
-
-.tagline {
-  margin: 0.9rem 0 0;
-  font-size: 1.05rem;
-  font-weight: 600;
-}
-
-.summary {
-  margin: 0.85rem 0 0;
-  color: var(--text-muted);
-}
-
-.reminder-note {
-  margin: 0.75rem 0 0;
-  color: var(--text-soft);
-  font-size: 0.88rem;
-}
-
 .external-link {
   display: inline-flex;
   align-items: center;
@@ -111,7 +88,6 @@
 }
 
 .facts-grid div,
-.quick-panel,
 .recap-panel {
   border: 1px solid var(--line-color);
   border-radius: 1.1rem;
@@ -155,8 +131,7 @@
   gap: 1rem;
 }
 
-.recap-panel,
-.quick-panel {
+.recap-panel {
   padding: 1.15rem;
 }
 
@@ -165,30 +140,23 @@
   font-size: 1.08rem;
 }
 
-.recap-panel ul,
-.quick-panel ul {
+.recap-panel ul {
   margin: 0;
-  padding-left: 1.05rem;
+  padding-left: 1.2rem;
 }
 
 .recap-panel li,
-.quick-panel li,
 .missing-page p {
   color: var(--text-muted);
+  line-height: 1.55;
 }
 
-.recap-panel li + li,
-.quick-panel li + li {
-  margin-top: 0.7rem;
+.recap-panel li + li {
+  margin-top: 0.82rem;
 }
 
-.quick-panel__label {
-  margin: 0 0 0.8rem;
-  color: var(--text-body);
-  font-size: 0.88rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+.recap-panel li::marker {
+  color: var(--accent-strong);
 }
 
 .missing-page {
@@ -227,16 +195,6 @@
   .hero-grid {
     grid-template-columns: minmax(17rem, 23rem) minmax(0, 1fr);
     align-items: center;
-  }
-
-  .recap-layout {
-    grid-template-columns: minmax(0, 1.65fr) minmax(18rem, 0.8fr);
-    align-items: start;
-  }
-
-  .quick-panel {
-    position: sticky;
-    top: 1.25rem;
   }
 }
 

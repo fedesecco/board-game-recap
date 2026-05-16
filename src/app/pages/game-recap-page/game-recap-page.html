@@ -13,11 +13,6 @@
         <div class="hero-copy">
           <p class="eyebrow">{{ selectedGame.category }}</p>
           <h1>{{ selectedGame.title }}</h1>
-          <p class="tagline">{{ selectedGame.tagline }}</p>
-          <p class="summary">{{ selectedGame.summary }}</p>
-          <p class="reminder-note">
-            Promemoria da tavolo: utile se almeno una persona ricorda gia il gioco.
-          </p>
 
           @if (selectedGame.bggUrl) {
             <a class="external-link" [href]="selectedGame.bggUrl" target="_blank" rel="noreferrer">
@@ -50,7 +45,7 @@
     <section class="content-shell">
       <div class="recap-layout">
         <div class="recap-sections">
-          @for (section of selectedGame.recapSections; track section.title) {
+          @for (section of recapSections(); track section.title) {
             <article class="recap-panel">
               <h2>{{ section.title }}</h2>
               <ul>
@@ -61,15 +56,6 @@
             </article>
           }
         </div>
-
-        <aside class="quick-panel">
-          <p class="quick-panel__label">Occhio a</p>
-          <ul>
-            @for (note of selectedGame.quickNotes; track note) {
-              <li>{{ note }}</li>
-            }
-          </ul>
-        </aside>
       </div>
     </section>
   </main>

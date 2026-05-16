@@ -81,8 +81,60 @@
 
           <div class="game-meta">
             <h2 class="game-title">{{ game.title }}</h2>
-            <p class="game-facts">{{ game.playTime }} · {{ getDifficultySummary(game) }}</p>
-            <p class="game-facts">{{ getPlayersSummary(game) }}</p>
+            <div class="game-facts" aria-label="Dettagli rapidi del gioco">
+              <span class="fact-chip fact-chip--time" [attr.aria-label]="'Durata ' + game.playTime">
+                <span class="fact-chip__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 6.25a.75.75 0 0 1 .75.75v4.69l3 1.73a.75.75 0 0 1-.75 1.3l-3.38-1.95A.75.75 0 0 1 11.25 12V7a.75.75 0 0 1 .75-.75Z"
+                    />
+                    <path
+                      d="M12 2.75a9.25 9.25 0 1 0 9.25 9.25A9.26 9.26 0 0 0 12 2.75Zm0 17a7.75 7.75 0 1 1 7.75-7.75A7.76 7.76 0 0 1 12 19.75Z"
+                    />
+                  </svg>
+                </span>
+                <span class="fact-chip__value">{{ game.playTime }}</span>
+              </span>
+
+              <span
+                class="fact-chip fact-chip--players"
+                [attr.aria-label]="'Giocatori ' + getPlayersSummary(game)"
+              >
+                <span class="fact-chip__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M16.75 13.5a3.25 3.25 0 1 0-2.76-5h-.48a3.25 3.25 0 1 0-5.02 3.99A4.75 4.75 0 0 0 5 17v.25c0 .41.34.75.75.75h12.5c.41 0 .75-.34.75-.75V17a4.73 4.73 0 0 0-2.25-4.05Zm-8-4a1.75 1.75 0 1 1 1.75 1.75A1.75 1.75 0 0 1 8.75 9.5Zm8 0A1.75 1.75 0 1 1 15 7.75a1.75 1.75 0 0 1 1.75 1.75ZM6.56 16.5a3.26 3.26 0 0 1 3.19-2.5h4.5a3.26 3.26 0 0 1 3.19 2.5Z"
+                    />
+                  </svg>
+                </span>
+                <span class="fact-chip__value">{{ getPlayersSummary(game) }}</span>
+              </span>
+
+              <span class="fact-chip fact-chip--best" [attr.aria-label]="'Best con ' + game.bestPlayers">
+                <span class="fact-chip__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="m12 3.75 2.25 4.56 5.03.73-3.64 3.54.86 5.01L12 15.23l-4.5 2.36.86-5.01-3.64-3.54 5.03-.73L12 3.75Zm0 2.7-1.38 2.79a.75.75 0 0 1-.56.41l-3.08.45 2.23 2.17a.75.75 0 0 1 .22.66l-.53 3.07 2.75-1.45a.75.75 0 0 1 .7 0L15.1 16l-.53-3.07a.75.75 0 0 1 .22-.66l2.23-2.17-3.08-.45a.75.75 0 0 1-.56-.41L12 6.45Z"
+                    />
+                  </svg>
+                </span>
+                <span class="fact-chip__value">{{ game.bestPlayers }}</span>
+              </span>
+
+              <span
+                class="fact-chip fact-chip--difficulty"
+                [attr.aria-label]="'Difficolta ' + getDifficultySummary(game)"
+              >
+                <span class="fact-chip__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M10.02 4.43a2.25 2.25 0 1 1 3.96 2.14l-.54.99a4.26 4.26 0 0 1 1.74 1.75l.99-.54a2.25 2.25 0 1 1 2.14 3.96l-.99.54c.12.5.18 1.01.18 1.52s-.06 1.02-.18 1.52l.99.54a2.25 2.25 0 1 1-2.14 3.96l-.99-.54a4.26 4.26 0 0 1-1.75 1.74l.54.99a2.25 2.25 0 1 1-3.96 2.14l-.54-.99a4.26 4.26 0 0 1-1.52.18c-.51 0-1.02-.06-1.52-.18l-.54.99a2.25 2.25 0 1 1-3.96-2.14l.54-.99a4.26 4.26 0 0 1-1.74-1.75l-.99.54a2.25 2.25 0 1 1-2.14-3.96l.99-.54A6.9 6.9 0 0 1 3.75 12c0-.51.06-1.02.18-1.52l-.99-.54a2.25 2.25 0 1 1 2.14-3.96l.99.54A4.26 4.26 0 0 1 7.81 5.8l-.54-.99a2.25 2.25 0 1 1 2.75-.38Zm1.98 4.82a2.75 2.75 0 1 0 0 5.5 2.75 2.75 0 0 0 0-5.5Z"
+                    />
+                  </svg>
+                </span>
+                <span class="fact-chip__value">{{ getDifficultySummary(game) }}</span>
+              </span>
+            </div>
           </div>
         </a>
       }

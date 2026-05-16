@@ -84,11 +84,11 @@ export class HomePageComponent {
       return 'Giocatori n/d';
     }
 
-    return `${game.minPlayers}-${game.maxPlayers} - best ${game.bestPlayers}`;
+    return `${game.minPlayers}-${game.maxPlayers}`;
   }
 
   protected getDifficultySummary(game: BoardGame): string {
-    return game.complexity === 'n/d' ? 'Diff. n/d' : `Diff. ${game.complexity}`;
+    return game.complexity === 'n/d' ? 'n/d' : game.complexity;
   }
 
   private matchesPlayerCount(game: BoardGame, targetPlayers: number): boolean {

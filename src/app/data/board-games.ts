@@ -19,6 +19,73 @@ function buildGame(game: Omit<BoardGame, 'players' | 'duration' | 'summary' | 'q
   } satisfies BoardGame;
 }
 
+function getCoverInitials(title: string): string {
+  return title
+    .replace(/[^\p{L}\p{N} ]+/gu, ' ')
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 3)
+    .map((word) => word[0]?.toUpperCase() ?? '')
+    .join('');
+}
+
+function buildPlaceholderCover(title: string, accentColor: string): string {
+  const safeTitle = title
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;');
+  const initials = getCoverInitials(title);
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 720" role="img" aria-label="${safeTitle}">
+      <defs>
+        <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+          <stop offset="0%" stop-color="${accentColor}" />
+          <stop offset="100%" stop-color="#0f1720" />
+        </linearGradient>
+      </defs>
+      <rect width="600" height="720" rx="44" fill="url(#bg)" />
+      <circle cx="506" cy="98" r="96" fill="rgba(255,255,255,0.12)" />
+      <circle cx="104" cy="628" r="126" fill="rgba(255,255,255,0.08)" />
+      <text
+        x="56"
+        y="140"
+        fill="#f8fafc"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="22"
+        font-weight="700"
+        letter-spacing="6"
+      >
+        BOARD GAME RECAP
+      </text>
+      <text
+        x="56"
+        y="392"
+        fill="#ffffff"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="120"
+        font-weight="700"
+        letter-spacing="4"
+      >
+        ${initials}
+      </text>
+      <text
+        x="56"
+        y="610"
+        fill="#f8fafc"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="26"
+        font-weight="700"
+        textLength="488"
+        lengthAdjust="spacingAndGlyphs"
+      >
+        ${safeTitle}
+      </text>
+    </svg>
+  `.trim();
+
+  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+}
+
 export const BOARD_GAMES: BoardGame[] = [
   buildGame({
     bggId: 129622,
@@ -181,6 +248,118 @@ export const BOARD_GAMES: BoardGame[] = [
     coverUrl: '/assets/games/7-wonders.jpg',
   }),
   buildGame({
+    bggId: 173346,
+    bggUrl: 'https://boardgamegeek.com/boardgame/173346/7-wonders-duel',
+    slug: '7-wonders-duel',
+    title: '7 Wonders Duel',
+    tagline: 'Civilta a due con draft e pressione continua.',
+    category: 'Card drafting',
+    minPlayers: 2,
+    maxPlayers: 2,
+    bestPlayers: '2',
+    playTime: '30 min',
+    complexity: '2.24',
+    year: 2015,
+    accentColor: '#9f6133',
+    coverUrl: buildPlaceholderCover('7 Wonders Duel', '#9f6133'),
+  }),
+  buildGame({
+    bggId: 230802,
+    bggUrl: 'https://boardgamegeek.com/boardgame/230802/azul',
+    slug: 'azul',
+    title: 'Azul',
+    tagline: 'Draft pulito e pattern building cattivo.',
+    category: 'Abstract strategy',
+    minPlayers: 2,
+    maxPlayers: 4,
+    bestPlayers: '4',
+    playTime: '30-45 min',
+    complexity: '1.76',
+    year: 2017,
+    accentColor: '#2d7997',
+    coverUrl: buildPlaceholderCover('Azul', '#2d7997'),
+  }),
+  buildGame({
+    bggId: 3955,
+    bggUrl: 'https://boardgamegeek.com/boardgame/3955/bang',
+    slug: 'bang',
+    title: 'BANG!',
+    tagline: 'Ruoli nascosti e sparatorie da tavolo.',
+    category: 'Party card game',
+    minPlayers: 4,
+    maxPlayers: 7,
+    bestPlayers: '6-7',
+    playTime: '20-40 min',
+    complexity: '1.63',
+    year: 2002,
+    accentColor: '#9d4a2f',
+    coverUrl: buildPlaceholderCover('BANG!', '#9d4a2f'),
+  }),
+  buildGame({
+    bggId: 822,
+    bggUrl: 'https://boardgamegeek.com/boardgame/822/carcassonne',
+    slug: 'carcassonne',
+    title: 'Carcassonne',
+    tagline: 'Tessere, meeple e controllo del timing.',
+    category: 'Tile placement',
+    minPlayers: 2,
+    maxPlayers: 5,
+    bestPlayers: '2',
+    playTime: '30-45 min',
+    complexity: '1.90',
+    year: 2000,
+    accentColor: '#8b6a3d',
+    coverUrl: buildPlaceholderCover('Carcassonne', '#8b6a3d'),
+  }),
+  buildGame({
+    bggId: 147151,
+    bggUrl: 'https://boardgamegeek.com/boardgame/147151/concept',
+    slug: 'concept',
+    title: 'Concept',
+    tagline: 'Indizi per icone, non per parole.',
+    category: 'Party game',
+    minPlayers: 4,
+    maxPlayers: 12,
+    bestPlayers: '6-8',
+    playTime: '40 min',
+    complexity: '1.35',
+    year: 2013,
+    accentColor: '#5c8b66',
+    coverUrl: buildPlaceholderCover('Concept', '#5c8b66'),
+  }),
+  buildGame({
+    bggId: 246784,
+    bggUrl: 'https://boardgamegeek.com/boardgame/246784/cryptid',
+    slug: 'cryptid',
+    title: 'Cryptid',
+    tagline: 'Deduzione condivisa e zero errori gratis.',
+    category: 'Deduction',
+    minPlayers: 3,
+    maxPlayers: 5,
+    bestPlayers: '4-5',
+    playTime: '30-50 min',
+    complexity: '2.16',
+    year: 2018,
+    accentColor: '#54696f',
+    coverUrl: buildPlaceholderCover('Cryptid', '#54696f'),
+  }),
+  buildGame({
+    bggId: 39856,
+    bggUrl: 'https://boardgamegeek.com/boardgame/39856/dixit',
+    slug: 'dixit',
+    title: 'Dixit',
+    tagline: 'Associazioni creative e clue calibrati.',
+    category: 'Party game',
+    minPlayers: 3,
+    maxPlayers: 6,
+    bestPlayers: '6',
+    playTime: '30 min',
+    complexity: '1.19',
+    year: 2008,
+    accentColor: '#8b5ba7',
+    coverUrl: buildPlaceholderCover('Dixit', '#8b5ba7'),
+  }),
+  buildGame({
     bggId: 194594,
     bggUrl: 'https://boardgamegeek.com/boardgame/194594/dice-forge',
     slug: 'dice-forge',
@@ -195,6 +374,22 @@ export const BOARD_GAMES: BoardGame[] = [
     year: 2017,
     accentColor: '#4f78d5',
     coverUrl: '/assets/games/dice-forge.jpg',
+  }),
+  buildGame({
+    bggId: 316554,
+    bggUrl: 'https://boardgamegeek.com/boardgame/316554/dune-imperium',
+    slug: 'dune-imperium',
+    title: 'Dune: Imperium',
+    tagline: 'Deckbuilding e worker placement con tensione vera.',
+    category: 'Strategy euro',
+    minPlayers: 1,
+    maxPlayers: 4,
+    bestPlayers: '4',
+    playTime: '60-120 min',
+    complexity: '3.03',
+    year: 2020,
+    accentColor: '#9e7040',
+    coverUrl: buildPlaceholderCover('Dune: Imperium', '#9e7040'),
   }),
   buildGame({
     bggId: 131357,
@@ -293,6 +488,54 @@ export const BOARD_GAMES: BoardGame[] = [
     coverUrl: '/assets/games/disco-draw.svg',
   }),
   buildGame({
+    bggId: 199042,
+    bggUrl: 'https://boardgamegeek.com/boardgame/199042/harry-potter-hogwarts-battle',
+    slug: 'harry-potter-hogwarts-battle',
+    title: 'Harry Potter Hogwarts Battle',
+    tagline: 'Deckbuilding cooperativo a campagne scolastiche.',
+    category: 'Cooperative deck building',
+    minPlayers: 2,
+    maxPlayers: 4,
+    bestPlayers: '4',
+    playTime: '30-60 min',
+    complexity: '2.08',
+    year: 2016,
+    accentColor: '#7b4e2f',
+    coverUrl: buildPlaceholderCover('Harry Potter Hogwarts Battle', '#7b4e2f'),
+  }),
+  buildGame({
+    bggId: 366013,
+    bggUrl: 'https://boardgamegeek.com/boardgame/366013/heat-pedal-to-the-metal',
+    slug: 'heat-pedal-to-the-metal',
+    title: 'Heat: Pedal to the Metal',
+    tagline: 'Corse, stress e curve prese al limite.',
+    category: 'Racing',
+    minPlayers: 1,
+    maxPlayers: 6,
+    bestPlayers: '5-6',
+    playTime: '30-60 min',
+    complexity: '2.18',
+    year: 2022,
+    accentColor: '#bc5334',
+    coverUrl: buildPlaceholderCover('Heat: Pedal to the Metal', '#bc5334'),
+  }),
+  buildGame({
+    bggId: 302520,
+    bggUrl: 'https://boardgamegeek.com/boardgame/302520/hues-and-cues',
+    slug: 'hues-and-cues',
+    title: 'Hues and Cues',
+    tagline: 'Un indizio, una sfumatura, tanti litigi cromatici.',
+    category: 'Party game',
+    minPlayers: 3,
+    maxPlayers: 10,
+    bestPlayers: '4-8',
+    playTime: '30 min',
+    complexity: '1.18',
+    year: 2020,
+    accentColor: '#7c5ce0',
+    coverUrl: buildPlaceholderCover('Hues and Cues', '#7c5ce0'),
+  }),
+  buildGame({
     bggId: 416851,
     bggUrl: 'https://boardgamegeek.com/boardgame/416851/castle-combo',
     slug: 'castle-combo',
@@ -341,6 +584,38 @@ export const BOARD_GAMES: BoardGame[] = [
     coverUrl: '/assets/games/drama-lama.jpg',
   }),
   buildGame({
+    bggId: 274960,
+    bggUrl: 'https://boardgamegeek.com/boardgame/274960/point-salad',
+    slug: 'insalata-di-punti',
+    title: 'Insalata di Punti / Point Salad',
+    tagline: 'Draft velocissimo e scoring combinatorio.',
+    category: 'Card drafting',
+    minPlayers: 2,
+    maxPlayers: 6,
+    bestPlayers: '2-3',
+    playTime: '15-30 min',
+    complexity: '1.15',
+    year: 2019,
+    accentColor: '#5e9b4b',
+    coverUrl: buildPlaceholderCover('Insalata di Punti', '#5e9b4b'),
+  }),
+  buildGame({
+    bggId: 164928,
+    bggUrl: 'https://boardgamegeek.com/boardgame/164928/orleans',
+    slug: 'orleans',
+    title: 'Orleans',
+    tagline: 'Bag building e pianificazione molto solida.',
+    category: 'Bag building euro',
+    minPlayers: 2,
+    maxPlayers: 4,
+    bestPlayers: '4',
+    playTime: '90 min',
+    complexity: '3.06',
+    year: 2014,
+    accentColor: '#8a6c44',
+    coverUrl: buildPlaceholderCover('Orleans', '#8a6c44'),
+  }),
+  buildGame({
     bggId: 260605,
     bggUrl: 'https://boardgamegeek.com/boardgame/260605/camel-up-second-edition',
     slug: 'camel-up',
@@ -371,6 +646,150 @@ export const BOARD_GAMES: BoardGame[] = [
     year: 2022,
     accentColor: '#5b68a0',
     coverUrl: '/assets/games/the-wandering-towers.svg',
+  }),
+  buildGame({
+    bggId: 45,
+    bggUrl: 'https://boardgamegeek.com/boardgame/45/perudo',
+    slug: 'perudo',
+    title: 'Perudo',
+    tagline: 'Dadi, bluff e lettura del tavolo.',
+    category: 'Bluffing',
+    minPlayers: 2,
+    maxPlayers: 6,
+    bestPlayers: '5-6',
+    playTime: '20-30 min',
+    complexity: '1.33',
+    year: 1993,
+    accentColor: '#7f3a2e',
+    coverUrl: buildPlaceholderCover('Perudo', '#7f3a2e'),
+  }),
+  buildGame({
+    bggId: null,
+    bggUrl: 'https://boardgamegeek.com/boardgameversion/735427/italian-edition',
+    slug: 'procioni-in-cassa-4',
+    title: 'Procioni in Cassa 4',
+    tagline: 'Push your luck leggero con furti e stop al momento giusto.',
+    category: 'Family card game',
+    minPlayers: 2,
+    maxPlayers: 6,
+    bestPlayers: 'n/d',
+    playTime: '20 min',
+    complexity: 'n/d',
+    year: 2024,
+    accentColor: '#5c4c42',
+    coverUrl: buildPlaceholderCover('Procioni in Cassa 4', '#5c4c42'),
+  }),
+  buildGame({
+    bggId: 199561,
+    bggUrl: 'https://boardgamegeek.com/boardgame/199561/sagrada',
+    slug: 'sagrada',
+    title: 'Sagrada',
+    tagline: 'Draft di dadi e finestre molto strette.',
+    category: 'Dice drafting',
+    minPlayers: 1,
+    maxPlayers: 4,
+    bestPlayers: '3-4',
+    playTime: '30-45 min',
+    complexity: '1.90',
+    year: 2017,
+    accentColor: '#6c79b4',
+    coverUrl: buildPlaceholderCover('Sagrada', '#6c79b4'),
+  }),
+  buildGame({
+    bggId: 108745,
+    bggUrl: 'https://boardgamegeek.com/boardgame/108745/seasons',
+    slug: 'seasons',
+    title: 'Seasons',
+    tagline: 'Draft magico e timing a calendario.',
+    category: 'Card drafting',
+    minPlayers: 2,
+    maxPlayers: 4,
+    bestPlayers: '4',
+    playTime: '60 min',
+    complexity: '2.75',
+    year: 2012,
+    accentColor: '#4d7aa5',
+    coverUrl: buildPlaceholderCover('Seasons', '#4d7aa5'),
+  }),
+  buildGame({
+    bggId: 169786,
+    bggUrl: 'https://boardgamegeek.com/boardgame/169786/scythe',
+    slug: 'scythe',
+    title: 'Scythe',
+    tagline: 'Euro di espansione con minaccia costante.',
+    category: 'Strategy euro',
+    minPlayers: 1,
+    maxPlayers: 5,
+    bestPlayers: '4',
+    playTime: '90-115 min',
+    complexity: '3.46',
+    year: 2016,
+    accentColor: '#6d4f46',
+    coverUrl: buildPlaceholderCover('Scythe', '#6d4f46'),
+  }),
+  buildGame({
+    bggId: 373106,
+    bggUrl: 'https://boardgamegeek.com/boardgame/373106/sky-team',
+    slug: 'sky-team',
+    title: 'Sky Team',
+    tagline: 'Co-op a due di dadi e atterraggio preciso.',
+    category: 'Cooperative strategy',
+    minPlayers: 2,
+    maxPlayers: 2,
+    bestPlayers: '2',
+    playTime: '20 min',
+    complexity: '2.05',
+    year: 2023,
+    accentColor: '#4a6f8f',
+    coverUrl: buildPlaceholderCover('Sky Team', '#4a6f8f'),
+  }),
+  buildGame({
+    bggId: 27627,
+    bggUrl: 'https://boardgamegeek.com/boardgame/27627/talisman-revised-4th-edition',
+    slug: 'talisman',
+    title: 'Talisman',
+    tagline: 'Avventura fantasy, dadi e caos narrativo.',
+    category: 'Adventure',
+    minPlayers: 2,
+    maxPlayers: 6,
+    bestPlayers: '4-5',
+    playTime: '90-120 min',
+    complexity: '2.43',
+    year: 2007,
+    accentColor: '#6a4a7d',
+    coverUrl: buildPlaceholderCover('Talisman', '#6a4a7d'),
+  }),
+  buildGame({
+    bggId: 167791,
+    bggUrl: 'https://boardgamegeek.com/boardgame/167791/terraforming-mars',
+    slug: 'terraforming-mars',
+    title: 'Terraforming Mars',
+    tagline: 'Carte, engine e ossessione per il lungo periodo.',
+    category: 'Strategy euro',
+    minPlayers: 1,
+    maxPlayers: 5,
+    bestPlayers: '3',
+    playTime: '120 min',
+    complexity: '3.26',
+    year: 2016,
+    accentColor: '#a05d37',
+    coverUrl: buildPlaceholderCover('Terraforming Mars', '#a05d37'),
+  }),
+  buildGame({
+    bggId: 213460,
+    bggUrl: 'https://boardgamegeek.com/boardgame/213460/unlock-escape-adventures',
+    slug: 'unlock',
+    title: 'Unlock!',
+    tagline: 'Escape room a carte in formato generico.',
+    category: 'Cooperative puzzle',
+    minPlayers: 1,
+    maxPlayers: 6,
+    bestPlayers: '2-4',
+    playTime: '60 min',
+    complexity: '1.61',
+    year: 2017,
+    accentColor: '#3e657a',
+    coverUrl: buildPlaceholderCover('Unlock!', '#3e657a'),
   }),
 ];
 
