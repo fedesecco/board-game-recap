@@ -14,25 +14,26 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
       {
         title: 'Setup rapido',
         items: [
-          'Separa le carte per Era e usa solo quelle compatibili col numero di giocatori; in Era III aggiungi le gilde in quantita corretta.',
-          'Dai a ciascuno una board Meraviglia, 3 monete e 7 carte dell Era I.',
-          'Tieni scorepad e segnalini militari a portata; le mani si passano sinistra-destra-sinistra nelle 3 Ere.',
+          'Fai i 3 mazzi delle 3 ere. Carte viola: numero giocatori + 2',
+          'Dai a ciascuno una board Meraviglia, 3 monete e 7 carte dell Era 1',
+          'Segnalini militari e soldi al centro, a portata di tutti',
         ],
       },
       {
         title: 'Come gira',
         items: [
-          'Tutti scelgono una carta in simultanea, poi rivelano e risolvono.',
-          'Con la carta puoi: costruire il edificio, costruire una fase della meraviglia, oppure scartare per 3 monete.',
-          'Quando hai 2 carte in mano ne giochi 1 e l altra si scarta; poi risolvi il conflitto di fine Era.',
+          'Fra le carte nella mano puoi: costruirla, metterla nella meraviglia, scartarla',
+          'Risoluzione conflitti militari a fine epoca',
+          'Conteggio punti a fine partita',
         ],
       },
       {
         title: 'Occhio a',
         items: [
-          'Le risorse prodotte non si consumano definitivamente: valgono per pagare il costo di una singola carta, non per piu carte.',
-          'Le risorse gialle grigie marroni con slash sono alternative, non cumulative.',
-          'La scienza esplode solo se bilanci simboli uguali e set completi: non improvvisarla tardi.',
+          "L'era finisce quando viene giocata la penultima carta, non l'ultima",
+          "Non si possono costruire 2 edifici identici",
+          "Non è possibile usare le Monete ricevute dagli altri giocatori durante lo stesso turno",
+          "Non è possibile acquistare risorse da un Edificio che il proprio vicino ha costruito in quello stesso turno"
         ],
       },
     ],
