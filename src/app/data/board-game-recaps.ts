@@ -37,26 +37,21 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
       {
         title: 'Setup',
         items: [
-          'Prepara la plancia Nostromo, il tracciato Alien e i mazzi richiesti dallo scenario scelto.',
-          'Ogni giocatore prende un membro dell equipaggio con pedina e abilita.',
-          'Posiziona Alien, segnalini missione e componenti scenario come indicato dallo scenario iniziale.',
+          'Per la prima partita apri la plancia Nostromo, metti il morale sul valore iniziale corretto, prepara il mazzo Incontri e lascia Ash nella scatola.',
+          'Ogni giocatore prende un membro dell equipaggio con pedina e abilità.',
+          'Metti 2 rottami in Garage, MU-TH-UR, Infermeria e Maintenance; 1 segnalino nascosto in Garage, Workshop e Maintenance; 1 tanica di refrigerante in Workshop, Garage, Maintenance, Equipment Storage, MU-TH-UR e Hyper Sleep.',
         ],
       },
       {
         title: 'Turni',
         items: [
-          'Nel tuo turno muovi, fai lazione principale disponibile e poi risolvi la pressione del gioco / Alien.',
+          'Nel tuo turno usa le azioni per: camminare | raccogliere X oggetti | depositare X oggetti | scambiare oggetti | creare un oggetto | usare un oggetto',
           'Il gruppo deve raccogliere risorse, completare gli obiettivi in ordine e aprirsi la strada al finale.',
-          'Le abilita dei personaggi sono pensate per coprire ruoli diversi: trattatele come puzzle cooperativo.',
         ],
       },
       {
         title: 'Occhio a',
-        items: [
-          'Se il tavolo si disperde troppo, la partita si incattivisce rapidamente.',
-          'L ordine in cui chiudete i sotto-obiettivi conta piu della micro-ottimizzazione individuale.',
-          'Ricordate sempre gli effetti persistenti delle carte evento / panico prima di passare il turno.',
-        ],
+        items: ['La torcia avita danni solo se equipaggiata da chi riceve i danni'],
       },
     ],
   },
@@ -65,9 +60,9 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
       {
         title: 'Setup',
         items: [
-          'Prepara la missione scelta con i fili e i componenti richiesti dal livello.',
+          'Per la prima partita usate la Missione 1 del libro: niente scatole sorpresa e niente missioni avanzate.',
           'Distribuisci i supporti personali e fai in modo che ciascuno veda solo le informazioni permesse.',
-          'Spiegate prima della partita come verbalizzare deduzioni e conferme senza oltrepassare il limite del gioco.',
+          'Il capitano legge ad alta voce il setup della missione, poi distribuite i fili come indicato e mettete sul tavolo solo i token davvero usati da quella missione.',
         ],
       },
       {
@@ -175,41 +170,29 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   citadels: {
     recapSections: [
       {
-        title: 'Setup pulito',
+        title: 'Setup',
         items: [
-          'Per una partita standard usa 8 personaggi, uno per rango 1-8. Se volete personalizzare, scegliete anche 14 quartieri unici da mischiare ai 54 base.',
           'Mescola il mazzo quartieri, dai 4 carte a testa, crea la banca comune e dai 2 oro a ciascuno.',
-          'Metti in mezzo i reminder dei personaggi e assegna la corona al giocatore iniziale.',
-          'Partita a 3: usa i ranghi 1-9, ogni giocatore sceglie 2 personaggi per round, e la partita finisce quando qualcuno arriva a 8 quartieri.',
-          'Partita a 2: usa 1-8 senza Imperatore; ogni giocatore prende due personaggi a round con la procedura keep-one-discard-one descritta dal regolamento.',
-        ],
-      },
-      {
-        title: 'Selezione personaggi senza caos',
-        items: [
-          'Il giocatore con la corona mescola i personaggi e scarta il numero corretto di carte previsto dal count giocatori prima della scelta.',
-          'Poi si drafta il personaggio in ordine, sempre coperto: nessuno rivela nulla finche il rango non viene chiamato.',
-          'Con 7 giocatori, l ultimo vede anche la carta scartata coperta all inizio e ne tiene una delle due; con 8 giocatori la stessa regola vale per l ottavo.',
+          '2 giocatori: 8 personaggi. 1 Scarta coperto+sceglie, 2 sceglie+scarta etc. Vittoria: 8 quartieri.',
+          '3 giocatori: 9 personaggi. 1 Scarta coperto+sceglie, 2 sceglie+scarta etc. Vittoria: 8 quartieri.',
+          '4 giocatori: 8(9) personaggi. Scartare 2(3) carte a faccia in sù, una faccia in giù. Vittoria: 7 quartieri.',
+          '5 giocatori: 8(9) personaggi. Scartare 1(2) carta a faccia in sù, una faccia in giù. Vittoria: 7 quartieri.',
+          '6 giocatori: 8(9) personaggi. Scartare 1(1) carta a faccia in giù. Vittoria: 7 quartieri.',
+          '7 giocatori: 8(9) personaggi. Scartare 1 carta a faccia in giù. Ultimo giocatore sceglie anche fra quella se erano 8 personaggi. Vittoria: 7 quartieri.',
+          '8 giocatori: 9 personaggi. Scartare 1 carta a faccia in giù. Ultimo giocatore sceglie anche fra quella. Vittoria: 7 quartieri.',
         ],
       },
       {
         title: 'Turno vero e proprio',
-        items: [
-          'Quando il tuo rango viene chiamato, se non sei stato ucciso riveli il personaggio e fai il turno.',
-          'Prima risolvi eventuali effetti che ti colpiscono appena vieni rivelato, per esempio furto.',
-          'Poi scegli una sola raccolta risorse: 2 oro oppure peschi 2 quartieri e ne tieni 1.',
-          'Durante il turno puoi usare la tua abilita una sola volta nel momento consentito e costruire normalmente 1 quartiere pagando il costo.',
-          'Le abilita che danno oro/carte per un colore possono essere usate prima o dopo la costruzione, a seconda di cosa ti conviene.',
-        ],
+        items: ['Esegui le azioni nella carta promemoria'],
       },
       {
         title: 'Occhio a',
         items: [
-          'Le abilita di personaggio e dei quartieri sono opzionali salvo testo must / cannot.',
-          'Normalmente non puoi avere due quartieri con lo stesso nome in citta, a meno che un effetto lo consenta esplicitamente.',
-          'Il Magistrato confisca solo il primo quartiere pagato dal bersaglio e gli restituisce l oro speso; quel quartiere conta comunque verso il limite build del bersaglio.',
-          'Le citta complete non possono subire certi effetti distruttivi; inoltre il tie-break finale va al giocatore che nell ultimo round ha rivelato il rango piu alto.',
-          'Se il gruppo si dimentica spesso timing e personaggi speciali, tenete aperta la pagina personaggi invece di fidarvi del testo mini sulle carte.',
+          'Regina 5+ giocatori',
+          'No quartieri doppi, a meno che un effetto lo consenta esplicitamente.',
+          'Le citta complete non possono subire certi effetti distruttivi.',
+          'Tiebreaker vittoria: punti -> chi ha il rango più alto',
         ],
       },
     ],
@@ -321,7 +304,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         items: [
           'Molte carte sembrano equivalenti ma cambiano molto se giocate da leader o da inseguitore.',
           'Se una carta crea interazione simultanea, chiarite l ordine di risoluzione prima di partire.',
-          'Se il tavolo non ricorda un dettaglio, meglio controllare subito che inventare.',
         ],
       },
     ],
@@ -359,9 +341,9 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
       {
         title: 'Setup',
         items: [
-          'Prepara plancia / mappa, personaggi, mostri, dadi e mazzi scenario secondo il capitolo scelto.',
+          'Per la prima partita usate la mappa introduttiva del regolamento, non una variante o una mappa avanzata.',
           'Ogni giocatore crea il proprio eroe e prende la dotazione iniziale.',
-          'Posiziona minacce iniziali e componenti di obiettivo prima di pescare eventi.',
+          'Preparate subito castello, mostri iniziali, dadi e mazzi base, cosi il tavolo vede da subito cosa difende e da dove arrivano i problemi.',
         ],
       },
       {
@@ -1144,9 +1126,9 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
       {
         title: 'Setup',
         items: [
-          'Scegli l aeroporto/scenario, prepara la plancia con i moduli richiesti e distribuisci i ruoli ai due piloti.',
+          'Per la prima partita usa Montreal YUL sul lato base con la traccia altitudine verde/gialla e senza moduli avanzati.',
           'Date a ciascuno i propri dadi e chiarite quali aree della cabina gestisce ciascun giocatore.',
-          'Prima di iniziare spiegate il livello di comunicazione consentito in quella fase della partita, perche cambia molto la difficolta percepita.',
+          'Mettete i reroll sugli spazi indicati della traccia altitudine, riempite la traccia di avvicinamento con gli aerei stampati e lasciate nella scatola tutto il contenuto del vano chiuso.',
         ],
       },
       {
@@ -1228,9 +1210,9 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
       {
         title: 'Setup',
         items: [
-          'Scegliete lo scenario, aprite solo il mazzo richiesto e preparate l app con la missione corretta.',
+          'Per la prima partita fate prima il tutorial da 10 carte, poi passate a uno scenario vero.',
           'Mettete la carta iniziale e tenete il resto del mazzo ordinato per numero.',
-          'Prima di partire spiegate bene differenza tra carte oggetto, macchine, codici e combinazioni numeriche.',
+          'Apri nell app il tutorial o lo scenario giusto e chiarisci subito differenza tra carte oggetto, macchine, codici e combinazioni numeriche.',
         ],
       },
       {
