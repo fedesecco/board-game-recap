@@ -1,15 +1,9 @@
 import { BoardGame } from '../models/board-game';
 
-type BoardGameRecap = Pick<BoardGame, 'summary' | 'quickNotes' | 'recapSections'>;
+type BoardGameRecap = Pick<BoardGame, 'recapSections'>;
 
 export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   '7-wonders': {
-    summary: 'Draft simultaneo in 3 Ere: scegli una carta, giochi la carta, passi la mano. Vinci facendo punti su motore, scienza, guerra e gilde.',
-    quickNotes: [
-      'Ogni Era: scegli 1 carta, giocala o scartala per 3 monete o usala per costruire una fase della meraviglia.',
-      'Le catene di simboli fanno risparmiare tantissimo: guardale prima di spendere monete.',
-      'I conflitti militari si risolvono solo a fine Era contro i due vicini.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -31,20 +25,14 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         title: 'Occhio a',
         items: [
           "L'era finisce quando viene giocata la penultima carta, non l'ultima",
-          "Non si possono costruire 2 edifici identici",
-          "Non è possibile usare le Monete ricevute dagli altri giocatori durante lo stesso turno",
-          "Non è possibile acquistare risorse da un Edificio che il proprio vicino ha costruito in quello stesso turno"
+          'Non si possono costruire 2 edifici identici',
+          'Non è possibile usare le Monete ricevute dagli altri giocatori durante lo stesso turno',
+          'Non è possibile acquistare risorse da un Edificio che il proprio vicino ha costruito in quello stesso turno',
         ],
       },
     ],
   },
   'alien-fate-of-the-nostromo': {
-    summary: 'Cooperativo snello: la ciurma prepara il piano, gira sulla Nostromo, raccoglie oggetti e prova a completare obiettivi mentre l Alien peggiora la situazione.',
-    quickNotes: [
-      'Tenete sempre d occhio morale / rischio e posizione dell Alien, non solo il vostro task locale.',
-      'Gli oggetti giusti cambiano il ritmo della partita: non sprecateli appena escono.',
-      'Quando si entra nel finale serve coordinazione, non corse individuali.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -73,12 +61,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   'bomb-busters': {
-    summary: 'Cooperativo di deduzione: i fili sono informazioni parziali, e il tavolo vince solo se taglia con ordine e senza regalare errori.',
-    quickNotes: [
-      'L obiettivo non e indovinare a caso: e restringere lo spazio di possibilita per il team.',
-      'Ogni informazione detta o implicita va protetta, non sprecata.',
-      'Quando il gruppo accelera troppo, di solito perde.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -107,12 +89,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   'camel-up': {
-    summary: 'Corse di cammelli e scommesse: il cuore non e muovere il proprio pezzo, ma leggere il timing della gamba e della corsa completa.',
-    quickNotes: [
-      'I cammelli impilati si trascinano: questo cambia tutto nei sorpassi.',
-      'Scommettere presto rende di piu ma puo essere un suicidio.',
-      'Non dimenticare le tessere deserto: spostano le corse piu di quanto sembri.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -141,12 +117,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   carnuta: {
-    summary: 'Druidi in gara per la pozione migliore: raccogli ingredienti, orienta bene le rune sole/luna e costruisci il tuo scoring senza perdere il ritmo.',
-    quickNotes: [
-      'Le rune sono il vero motore: gli ingredienti da soli non bastano.',
-      'Meglio una linea coerente che inseguire ogni bonus.',
-      'Occhio a quando chiudi la tua undicesima carta: puo accorciare i tempi.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -175,12 +145,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   'castle-combo': {
-    summary: 'Mini tableau 3x3: compri poche carte, ma ogni slot e ogni adiacenza pesano tantissimo.',
-    quickNotes: [
-      'I soldi sono stretti: comprare bene conta piu che comprare tanto.',
-      'Gioca pensando alla griglia completa, non alla singola carta forte.',
-      'Le icone di scoring vanno lette in coppia con il posizionamento.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -209,12 +173,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   citadels: {
-    summary: 'Promemoria da tavolo, non tutorial: scegli un personaggio, raccogli risorse, usa una sola abilita per turno e costruisci la citta migliore leggendo gli altri.',
-    quickNotes: [
-      'Regola d oro: il testo completo del regolamento prevale sul riassunto stampato sulle carte.',
-      'Oro in riserva e numero di carte in mano sono informazione aperta.',
-      'La partita base chiude a 7 quartieri; con 2-3 giocatori si chiude a 8 e ogni giocatore usa 2 personaggi.',
-    ],
     recapSections: [
       {
         title: 'Setup pulito',
@@ -257,12 +215,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   coup: {
-    summary: 'Bluff secco: 2 influenze, poche monete, azioni semplici, e tutto il gioco sta nel capire quando dichiarare, sfidare o lasciare passare.',
-    quickNotes: [
-      'Se sfidi male perdi un influenza; se sfidi bene la perde l altro.',
-      'Il blocco conta quanto lazione: non dimenticarlo.',
-      'A 7 monete devi fare colpo di stato nel tuo turno.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -291,12 +243,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   'dice-forge': {
-    summary: 'Engine building a dadi: tiri ogni round, migliori facce, compri carte e converti il motore in punti prima degli altri.',
-    quickNotes: [
-      'Aggiornare i dadi presto e bene vale piu di una carta brillante al momento sbagliato.',
-      'Le carte con effetto immediato e quelle persistenti vanno bilanciate.',
-      'Ricordate il tiro passivo anche fuori dal proprio turno.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -325,12 +271,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   'disco-draw': {
-    summary: 'Party game di disegno rapido: conta piu l energia del tavolo che la precisione tecnica.',
-    quickNotes: [
-      'Serve ritmo: se il tavolo rallenta troppo, il gioco perde.',
-      'Spiega prima bene cosa e consentito comunicare oltre al disegno.',
-      'Meglio linee chiare e leggibili che tentativi complessi.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -359,12 +299,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   'drama-lama': {
-    summary: 'Party game cattivo e rapido: il tavolo ride se tutti giocano veloci e accettano il caos.',
-    quickNotes: [
-      'Le partite rendono se nessuno overanalizza.',
-      'Le carte che puniscono gli altri valgono di piu col timing giusto.',
-      'Tenete il focus sul flusso del round, non sul singolo micro-effetto.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -393,12 +327,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   imagine: {
-    summary: 'Carte trasparenti e associazione visiva: il clue giver costruisce un immagine leggibile, gli altri devono leggerla senza aiuti verbali.',
-    quickNotes: [
-      'Non spiegare a parole: il linguaggio del gioco e la composizione visiva.',
-      'Pochi elementi ben scelti valgono piu di collage enormi.',
-      'Accordo al tavolo su cosa conta come gesto vietato prima di iniziare.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -427,12 +355,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   'le-cronache-di-avel': {
-    summary: 'Cooperativo family adventure: esplorate, equipaggiate i personaggi e tenete pulita la mappa abbastanza a lungo da chiudere bene il finale.',
-    quickNotes: [
-      'Dividersi troppo presto di solito punisce.',
-      'L equipaggiamento buono va concentrato dove serve davvero.',
-      'La difesa del castello conta tanto quanto l esplorazione.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -461,12 +383,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   'love-letter': {
-    summary: 'Filler di deduzione: una carta in mano, una pescata, una giocata. Il round finisce quando resta un solo giocatore o il mazzo si esaurisce.',
-    quickNotes: [
-      'La Principessa scartata ti elimina subito.',
-      'La Contessa va giocata se hai anche Re o Principe in mano.',
-      'Ricorda chi ha gia mostrato o scartato cosa: la memoria e il vero vantaggio.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -495,12 +411,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   'per-la-corona': {
-    summary: 'Deckbuilding con un solo mazzo condiviso: inserisci personaggi nella tua bustina / famiglia, poi il mazzo comune li rimescola e li fa esplodere in ordine imprevedibile.',
-    quickNotes: [
-      'Non costruire il mazzo pensando di pescare tu le tue carte subito: il deck e condiviso.',
-      'I rubini contano piu del semplice vantaggio tattico del momento.',
-      'I round sono pochi: serve accelerare presto verso un piano coerente.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -529,12 +439,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   root: {
-    summary: 'Asimmetrico puro: ogni fazione ha il proprio minigioco. Il promemoria giusto e ricordarsi il motore della propria fazione e chi va fermato al tavolo.',
-    quickNotes: [
-      'Se nessuno ricorda bene almeno la propria fazione, meglio tenere i player boards molto visibili.',
-      'Il leader va contenuto presto, non quando ha gia sfondato.',
-      'Le regole comuni bastano poco: le eccezioni di fazione sono il gioco.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -563,12 +467,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   'res-arcana': {
-    summary: 'Otto carte, poche azioni, motore strettissimo. Non e un builder largo: e un esercizio di conversione elegante e cattivo.',
-    quickNotes: [
-      'Scartare un artefatto per oro / essenze e una leva vera, non un ripiego.',
-      'Chi passa per primo prende vantaggi importanti.',
-      'Molte partite si decidono su tempo e sequencing, non sulla raw power delle carte.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -598,12 +496,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   seti: {
-    summary: 'Euro spaziale a densita alta: alterni azioni forti, sviluppo tecnologico e timing delle scoperte. La pagina serve solo a rimettere in testa il flusso.',
-    quickNotes: [
-      'Prima del primo turno ricontrolla sempre setup delle specie aliene scelte: cambiano molto la partita.',
-      'Il gioco e pieno di icone: se il tavolo e arrugginito, tieni gli aiuti aperti.',
-      'Le azioni belle costano tempo e posizione: non pensare solo in risorse.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -632,12 +524,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   'the-druids-of-edora': {
-    summary: 'Euro a dadi in foresta: piazzamento, raccolta, pozioni e struttura a medio peso con tanti piccoli incastri.',
-    quickNotes: [
-      'I dadi sono worker ma anche tempo e priorita.',
-      'Le pozioni vanno pianificate, non improvvisate dal materiale avanzato.',
-      'Le strutture fatte al momento giusto cambiano il ritmo della partita.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -666,12 +552,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   'the-resistance-avalon': {
-    summary: 'Social deduction a missioni: il promemoria vero e ricordarsi apertura, numero di fallimenti richiesti e gestione dei team.',
-    quickNotes: [
-      'A 7+ giocatori la quarta missione richiede 2 fallimenti per fallire.',
-      'Il Bene non deve solo leggere il male: deve anche proteggere informazioni utili per Merlin.',
-      'Non fossilizzarti sui singoli vote: conta il pattern di proposta + approvazione.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -700,12 +580,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   'the-wandering-towers': {
-    summary: 'Corsa family con maghi e torri mobili: il cuore e usare bene movimento, sovrapposizioni e pozioni per arrivare al castello al momento giusto.',
-    quickNotes: [
-      'Le torri non sono solo ostacoli: possono essere strumento di posizionamento.',
-      'Le pozioni vanno conservate per swing importanti, non per micro-vantaggi.',
-      'Guarda sempre il tabellone a 2 mosse, non solo la carta del turno.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -734,12 +608,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   'windmill-valley': {
-    summary: 'Euro su tulipani e ingranaggi: ruoti la tua windmill board per generare coppie di azioni e convertire il timing in efficienza.',
-    quickNotes: [
-      'La rotazione delle ruote e il gioco: pensa in combinazioni, non in singola azione.',
-      'Bulbi, denaro e sviluppo ruotano insieme: se una gamba manca, il turno si sgonfia.',
-      'Pianifica i turni finali per non lasciare punti sparsi ovunque.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -768,12 +636,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   '7-wonders-duel': {
-    summary: 'Versione a due di 7 Wonders: draft aperto a piramide, tre vie di vittoria e pressione continua sul timing.',
-    quickNotes: [
-      'Non guardare solo i punti: militare e scienza possono chiudere la partita prima.',
-      'Aprire una carta coperta all avversario puo essere forte o disastroso.',
-      'Le meraviglie non sono solo punti: spesso servono per ritmo, extra turni e denial.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -802,12 +664,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   azul: {
-    summary: 'Draft di tessere molto pulito: prendi da una fabbrica o dal centro, riempi le linee e poi trasli punti sul muro.',
-    quickNotes: [
-      'Spiegare bene quando le tessere in eccesso cadono sul pavimento evita meta degli errori.',
-      'Il centro tavolo va svuotato con criterio: prendere il primo giocatore puo costare parecchio.',
-      'La plancia personale va letta con calma il primo round, poi il gioco scorre da solo.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -836,12 +692,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   bang: {
-    summary: 'Ruoli nascosti e gestione della distanza: lo scheletro e semplice, il tavolo si incasina se non chiarisci bene turni e gittata.',
-    quickNotes: [
-      'Il punto non e solo sparare: e capire chi puo colpire chi e con quali carte.',
-      'Sceriffo visibile, ruoli coperti e obiettivi diversi vanno spiegati con ordine prima di partire.',
-      'Molti errori vengono dalla distanza e dai limiti sul numero di BANG! giocabili.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -870,12 +720,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   carcassonne: {
-    summary: 'Piazzi tessere, metti meeple e chiudi elementi per segnare: il gioco si spiega bene se distingui subito piazzamento e scoring.',
-    quickNotes: [
-      'La prima cosa da chiarire e quando il meeple si puo piazzare e quando invece no.',
-      'Strade, citta, monasteri e campi non si raccontano tutti con lo stesso livello: i campi possono stare per ultimi.',
-      'Il tavolo sbaglia spesso il conteggio finale dei campi se non e stato chiarito prima.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -904,12 +748,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   concept: {
-    summary: 'Indovinelli per icone: il clue giver non parla quasi mai davvero, costruisce un percorso di concetti sul tabellone.',
-    quickNotes: [
-      'Funziona solo se il tavolo capisce bene cosa si puo indicare e cosa no.',
-      'Piu importante della regola punti e il linguaggio condiviso delle icone.',
-      'Meglio un indizio pulito con due livelli che una mappa piena di marker casuali.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -938,12 +776,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   cryptid: {
-    summary: 'Deduzione pura: ogni giocatore ha un indizio parziale e il tavolo stringe il cerchio fino a individuare una sola casella valida.',
-    quickNotes: [
-      'Spiega bene l idea di informazione pubblica contro informazione privata prima della prima domanda.',
-      'Il cuore del gioco non e il bluff: e non regalare piu informazione del necessario.',
-      'Le domande sbagliate accelerano la vittoria degli altri, non solo la tua sconfitta.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -972,12 +804,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   dixit: {
-    summary: 'Associazione di immagini: il narratore deve dare un indizio ne troppo ovvio ne troppo oscuro.',
-    quickNotes: [
-      'La frase chiave da ricordare e questa: se tutti indovinano o nessuno indovina, il narratore ha sbagliato target.',
-      'Il gioco rende meglio se l indizio resta evocativo e non descrittivo.',
-      'La gestione dei punteggi e semplice, ma va raccontata prima del primo voto.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -1006,12 +832,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   'dune-imperium': {
-    summary: 'Deckbuilding e worker placement intrecciati: giochi una carta per mandare un agente, poi riveli il resto per comprare e combattere.',
-    quickNotes: [
-      'Spiega separatamente fase Agenti e Reveal: e li che il gioco smette di sembrare un worker placement standard.',
-      'La lotta non e obbligatoria ogni round, ma ignorarla troppo spesso ti lascia indietro.',
-      'Persuasione, spezia e acqua vanno lette sempre insieme al posizionamento disponibile.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -1040,12 +860,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   'harry-potter-hogwarts-battle': {
-    summary: 'Co-op deckbuilding a campagna: si parte semplice e ogni anno aggiunge regole, nemici e carte nuove.',
-    quickNotes: [
-      'Spiega sempre il gioco base del deckbuilding prima dei moduli dell anno corrente.',
-      'La perdita di controllo sui luoghi e il vero timer della partita.',
-      'Se il tavolo e alle prime armi, meglio enfatizzare acquisti puliti e focus sugli effetti che rimuovono danni o controllo.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -1074,12 +888,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   'heat-pedal-to-the-metal': {
-    summary: 'Corse gestite a marce e heat: vuoi andare forte, ma ogni curva ti ricorda che il motore non perdona.',
-    quickNotes: [
-      'Spiega prima bene marce, limite di carte pescate e heat; tutto il resto si appoggia li.',
-      'Le curve non chiedono velocita media, ma numero di spazi prima di uscirne.',
-      'Il gioco sembra arcade ma il timing del cooldown conta tantissimo.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -1108,12 +916,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   'hues-and-cues': {
-    summary: 'Un indizio di colore con una o due parole e tutti puntano una sfumatura su una griglia enorme.',
-    quickNotes: [
-      'Il gioco vive o muore sulla chiarezza di cosa conta come indizio legale.',
-      'Meglio spendere 20 secondi prima a chiarire il formato degli indizi che discutere per tutta la partita.',
-      'Il resto e velocissimo: indizio, piazzamento, punteggio.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -1142,12 +944,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   'insalata-di-punti': {
-    summary: 'Draft super rapido di verdure e carte punteggio: costruisci conversioni semplici ma cerca il momento giusto per cambiare lato alle carte.',
-    quickNotes: [
-      'La regola chiave e che ogni carta puo essere ortaggio o scoring, non entrambe.',
-      'Si spiega in due minuti se parti dal draft e solo dopo parli dei punti.',
-      'Le mani si leggono meglio se i giocatori tengono separati ortaggi e carte obiettivo.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -1176,12 +972,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   orleans: {
-    summary: 'Bag building con piazzamento simultaneo di seguaci: carichi la sacca, pianifichi la plancia e converti bene le azioni chiave di round.',
-    quickNotes: [
-      'Spiega bene il ciclo prendo seguaci -> li pesco -> li piazzo su azioni; e il motore del gioco.',
-      'La mappa e importante, ma va presentata dopo la plancia personale.',
-      'Molti errori nascono dal dimenticare quali seguaci restano bloccati fino alla risoluzione.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -1210,12 +1000,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   perudo: {
-    summary: 'Bluff su dadi nascosti: rilanci o dubiti, con poche regole ma tanto peso sulla lettura del tavolo.',
-    quickNotes: [
-      'Spiega subito se gli uno sono jolly nella versione che state usando, perche cambia tutto.',
-      'Il gioco si capisce solo se il rilancio minimo e chiarissimo.',
-      'Una spiegazione breve ma precisa vale piu di mille esempi verbali confusi.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -1244,12 +1028,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   'procioni-in-cassa-4': {
-    summary: 'Filler family di push your luck e furti leggeri: raccogli bottino e fermati al momento giusto prima che qualcun altro ti superi.',
-    quickNotes: [
-      'Spiega con chiarezza quando si puo continuare a pescare e quando conviene fermarsi.',
-      'Il ritmo deve essere molto rapido: piu il tavolo analizza, meno il gioco rende.',
-      'Le interazioni leggere vanno lette come swing di round, non come strategia lunga.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -1278,12 +1056,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   sagrada: {
-    summary: 'Draft di dadi colorati su vetrate con vincoli di colore e valore: i tool aiutano, ma il cuore e non bloccarsi la plancia da soli.',
-    quickNotes: [
-      'Spiega subito la differenza tra restrizioni adiacenza, colore e numero.',
-      'I tool cards vanno presentati come eccezioni mirate, non come regola base.',
-      'Molti errori vengono dai limiti di piazzamento e da cosa significa adiacenza ortogonale/diagonale.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -1312,12 +1084,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   seasons: {
-    summary: 'Draft iniziale e calendario a dadi: giochi carte, evochi combo e gestisci bene il limite di evocazione mentre le stagioni scorrono.',
-    quickNotes: [
-      'La spiegazione funziona se separi bene draft iniziale, round di dadi e limite di evocazione.',
-      'Le energie non sono tutte equivalenti: il cambio stagione modifica anche il loro valore relativo.',
-      'Molti errori derivano dal dimenticare il limite di carte evocate davanti a te.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -1346,12 +1112,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   scythe: {
-    summary: 'Euro di espansione con mappa condivisa: scegli una sezione della plancia, fai l azione alta e magari quella bassa, costruendo economia e presenza.',
-    quickNotes: [
-      'Spiega il flusso della plancia personale prima di parlare di combattimento o obiettivi.',
-      'Il gioco non e un wargame puro: il conflitto c e, ma il motore economico viene prima.',
-      'Popolarita, potere e stelle vanno presentati subito come assi portanti della partita.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -1380,12 +1140,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   'sky-team': {
-    summary: 'Co-op a due di dadi piazzati in silenzio relativo: volete atterrare senza perdere il controllo di asse, velocita, flap e pista.',
-    quickNotes: [
-      'La spiegazione deve partire dai quattro strumenti critici: asse, velocita, flap e freni/atterraggio.',
-      'Il gioco sembra piccolo ma il vincolo di comunicazione e la regola che piu incide sul tavolo.',
-      'Meglio fare un round di esempio completo che tre minuti di teoria astratta.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -1414,12 +1168,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   talisman: {
-    summary: 'Avventura fantasy a dadi e carte: muovi, incontri spazi e cerchi di crescere abbastanza da affrontare il centro del tabellone.',
-    quickNotes: [
-      'Il gioco rende se la spiegazione resta semplice: movimento, incontri, equip e accesso alle regioni interne.',
-      'Non provare a coprire ogni carta possibile: dai lo scheletro e fai leggere gli effetti quando escono.',
-      'L accesso alla regione centrale e il nodo che il tavolo dimentica piu spesso.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -1448,12 +1196,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   'terraforming-mars': {
-    summary: 'Engine builder di carte e tag: paghi per progetti, alzi i parametri globali e costruisci un motore che converte soldi e sinergie in punti.',
-    quickNotes: [
-      'La spiegazione funziona se separi bene generazione, azioni/progetti e fine generazione.',
-      'Le tre metriche globali non sono solo fine partita: guidano ritmo, economia e milestone.',
-      'Non leggere tutte le icone al tavolo prima del via: spiega i simboli che servono subito e il resto quando appare.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',
@@ -1482,12 +1224,6 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
     ],
   },
   unlock: {
-    summary: 'Escape room a carte con app: cercate numeri, combinate oggetti e risolvete enigmi sotto pressione di tempo.',
-    quickNotes: [
-      'Spiega il sistema di carte e combinazioni prima di raccontare l app.',
-      'Il tavolo deve capire subito quali carte restano in gioco e quali invece si scartano.',
-      'Il vero rischio non e la difficolta degli enigmi, ma l uso disordinato delle carte sul tavolo.',
-    ],
     recapSections: [
       {
         title: 'Setup rapido',

@@ -31,7 +31,5 @@ export interface BoardGame {
   accentColor: string;
   coverUrl: string;
   tags: Tag[];
-  summary: string;
-  quickNotes: string[];
   recapSections: BoardGameRecapSection[];
 }

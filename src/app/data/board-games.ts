@@ -72,10 +72,7 @@ const CATEGORY_TAGS: Record<string, Tag[]> = {
 };
 
 function buildGame(
-  game: Omit<
-    BoardGame,
-    'players' | 'duration' | 'summary' | 'quickNotes' | 'recapSections' | 'tags'
-  >,
+  game: Omit<BoardGame, 'players' | 'duration' | 'recapSections' | 'tags'>,
 ) {
   const recap = BOARD_GAME_RECAPS[game.slug];
   const tags = [
@@ -91,8 +88,6 @@ function buildGame(
         ? `${game.minPlayers}-${game.maxPlayers} giocatori`
         : 'Giocatori n/d',
     duration: game.playTime,
-    summary: recap?.summary ?? `${game.title}. Promemoria rapido per la tua libreria personale.`,
-    quickNotes: recap?.quickNotes ?? [],
     recapSections: recap?.recapSections ?? [],
   } satisfies BoardGame;
 }
