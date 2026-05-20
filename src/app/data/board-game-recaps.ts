@@ -6,15 +6,15 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   '7-wonders': {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Fai i 3 mazzi delle 3 ere. Carte viola: numero giocatori + 2',
-          'Dai a ciascuno una board Meraviglia, 3 monete e 7 carte dell Era 1',
+          'Dai a ciascuno una board Meraviglia, 3 monete e 7 carte Era 1',
           'Segnalini militari e soldi al centro, a portata di tutti',
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Fra le carte nella mano puoi: costruirla, metterla nella meraviglia, scartarla',
           'Risoluzione conflitti militari a fine epoca',
@@ -35,7 +35,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   'alien-fate-of-the-nostromo': {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Prepara la plancia Nostromo, il tracciato Alien e i mazzi richiesti dallo scenario scelto.',
           'Ogni giocatore prende un membro dell equipaggio con pedina e abilita.',
@@ -43,7 +43,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Nel tuo turno muovi, fai lazione principale disponibile e poi risolvi la pressione del gioco / Alien.',
           'Il gruppo deve raccogliere risorse, completare gli obiettivi in ordine e aprirsi la strada al finale.',
@@ -63,7 +63,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   'bomb-busters': {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Prepara la missione scelta con i fili e i componenti richiesti dal livello.',
           'Distribuisci i supporti personali e fai in modo che ciascuno veda solo le informazioni permesse.',
@@ -71,7 +71,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Nel turno provi a identificare un taglio corretto usando informazione pubblica e disposizione dei fili.',
           'Ogni successo restringe il puzzle e apre nuove certezze per gli altri.',
@@ -91,7 +91,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   'camel-up': {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Mettete plancia, piramide, dadi e cammelli sulla pista come da setup iniziale.',
           'Date monete e tessera deserto ai giocatori, poi preparate leg-bet e winner/loser bet.',
@@ -99,7 +99,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Nel tuo turno scegli una delle azioni classiche: far uscire un dado dalla piramide, piazzare tessera deserto, prendere una scommessa di gamba, o puntare vincente/perdente finale.',
           'Quando tutti i dadi della gamba sono usciti, si paga la gamba e si resetta il round corto.',
@@ -119,7 +119,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   carnuta: {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Prepara ingredienti, rune doppia faccia, token e plance personali.',
           'Dai a ogni giocatore il materiale iniziale previsto e rendi visibili le fonti comuni di ingredienti/bonus.',
@@ -127,7 +127,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Nel turno selezioni ingredienti e costruisci la tua miscela cercando sinergie con lo stato attuale delle rune.',
           'Le carte / ingredienti giocati aprono scoring o sconti se sono combinati con il lato corretto delle rune.',
@@ -147,7 +147,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   'castle-combo': {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Prepara il mercato comune e le risorse iniziali secondo il numero di giocatori.',
           'Ogni giocatore costruira un tableau 3x3: lasciate lo spazio ben leggibile fin dall inizio.',
@@ -155,7 +155,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Nel turno prendi la carta accessibile che ti conviene e la piazzi in uno dei nove slot.',
           'L economia gira su poche risorse e piccoli sconti/ritorni, quindi il sequencing conta molto.',
@@ -217,7 +217,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   coup: {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Mescola il mazzo ruoli, dai 2 carte coperte a ciascuno e 2 monete iniziali.',
           'Le carte in mano sono le tue influenze vive; quelle perse restano rivelate davanti a te.',
@@ -225,7 +225,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Nel turno dichiari una sola azione: reddito, aiuto estero, colpo di stato o una azione da ruolo.',
           'Gli altri possono sfidare la veridicita del ruolo dichiarato oppure bloccare se la regola lo permette.',
@@ -245,7 +245,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   'dice-forge': {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Prepara il tempio con i set di carte scelti, i dadi base e le facce acquistabili.',
           'Ogni giocatore prende plancia, dado coppia e risorse iniziali standard.',
@@ -253,7 +253,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Ogni turno attivo inizia con il tiro dei dadi del giocatore attivo, ma in molti momenti tutti raccolgono anche entrate passive dai propri dadi.',
           'Con le risorse puoi comprare nuove facce e sostituirle sui dadi oppure comprare carte dal tempio.',
@@ -273,7 +273,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   'disco-draw': {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Prepara supporti di disegno, timer e mazzo/obiettivi della partita.',
           'Mettete il materiale in modo che il passaggio o la rotazione sia immediato.',
@@ -281,7 +281,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Un round tipico alterna prompt da rappresentare, finestra di disegno rapida e fase di interpretazione / punteggio.',
           'Il twist della tavola rotante o del passaggio dei supporti cambia chi completa davvero il disegno.',
@@ -301,7 +301,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   'drama-lama': {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Prepara il mazzo e il materiale comune previsto dalla variante base.',
           'Dai a tutti la mano / dotazione iniziale standard e chiarisci la condizione di fine round.',
@@ -309,7 +309,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Nel turno giochi lazione consentita dalla carta o dal momento, cercando di migliorare la tua posizione o peggiorare quella altrui.',
           'I round sono brevi e si risolvono in una manciata di scelte dirette.',
@@ -329,7 +329,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   imagine: {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Disponi le carte trasparenti e il sistema di punti secondo la modalita scelta.',
           'Assicurati che tutti vedano bene il centro del tavolo: serve leggibilita.',
@@ -337,7 +337,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Un giocatore riceve il concetto da far indovinare e usa solo le carte trasparenti per rappresentarlo.',
           'Gli altri fanno tentativi entro la finestra prevista; quando qualcuno indovina si passa al round dopo.',
@@ -357,7 +357,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   'le-cronache-di-avel': {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Prepara plancia / mappa, personaggi, mostri, dadi e mazzi scenario secondo il capitolo scelto.',
           'Ogni giocatore crea il proprio eroe e prende la dotazione iniziale.',
@@ -365,7 +365,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Nel turno i giocatori si muovono, esplorano, raccolgono equipaggiamento e affrontano mostri.',
           'La partita alterna crescita del party e gestione del ritmo di invasione sulla mappa.',
@@ -385,7 +385,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   'love-letter': {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Mescola il mazzo, metti 1 carta coperta da parte e distribuisci 1 carta a ciascuno.',
           'Prepara i segnalini favore; il numero per vincere dipende dal count giocatori o dalla variante scelta.',
@@ -393,7 +393,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Nel turno peschi 1 carta e ne giochi 1, risolvendone leffetto per eliminare, proteggere, confrontare o manipolare mani.',
           'Se resti l ultimo in gioco vinci il round; altrimenti, a fine mazzo vince chi ha la carta piu alta in mano.',
@@ -413,7 +413,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   'per-la-corona': {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Prepara le famiglie / colori, il mazzo eventi comune e i componenti economici del gioco.',
           'Ogni giocatore riceve la propria identita e la dotazione iniziale prevista dal regolamento.',
@@ -421,7 +421,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Durante la fase di reclutamento compri nuovi personaggi e li aggiungi alla tua linea colorata / sleeve.',
           'Poi tutte le carte vengono mischiate nel deck comune e rivelate una alla volta: quando esce una tua carta, risolvi tu il suo effetto.',
@@ -441,7 +441,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   root: {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Seguite i setup stampati sulle plance fazione: sono molto piu affidabili della memoria.',
           'Preparate mappa, clearings, item, mazzo comune e carte Dominance se le usate.',
@@ -449,7 +449,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Ogni fazione gioca Birdsong, Daylight, Evening ma con azioni e vincoli propri.',
           'Si fanno punti costruendo il proprio engine e sfruttando il controllo del bosco in modo diverso a seconda della fazione.',
@@ -469,7 +469,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   'res-arcana': {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Ogni giocatore riceve mago, oggetto magico iniziale e il proprio deck da 8 artefatti.',
           'Rendi visibili monumenti e luoghi di potere previsti dal count giocatori.',
@@ -477,7 +477,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Ogni round: raccogli eventuali entrate, poi a turno i giocatori fanno 1 azione alla volta finche tutti passano.',
           'Le azioni classiche sono: giocare un artefatto, usare un potere, reclamare monumento / luogo, scartare per risorse o passare.',
@@ -498,7 +498,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   seti: {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Prepara tabellone Sistema Solare, tech, carte e i componenti generali del gioco.',
           'Scegli le specie / moduli di partita previsti e rendi visibili gli obiettivi o scoring comuni.',
@@ -506,7 +506,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Nel turno fai una grossa azione: lanciare o muovere asset, scandagliare, analizzare, giocare carte, sviluppare tecnologia o azioni simili secondo lo stato della partita.',
           'Le carte trasformano il motore e spesso aprono bonus o sconti se giocate nel timing giusto.',
@@ -526,7 +526,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   'the-druids-of-edora': {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Prepara foresta / plancia principale, dadi, risorse, obiettivi e componenti dei giocatori.',
           'Ogni giocatore prende la propria plancia e la dotazione iniziale.',
@@ -534,7 +534,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Nel turno piazzi dadi per compiere azioni: raccogliere, muovere, costruire, ottenere conoscenza o preparare pozioni.',
           'Le azioni si intrecciano: spesso una mossa vale per il setup della successiva piu che per il beneficio immediato.',
@@ -554,7 +554,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   'the-resistance-avalon': {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Scegli i ruoli in base al count giocatori e distribuiscili coperti.',
           'Fai la sequenza iniziale di occhi chiusi / aperti per Evil e Merlin secondo i ruoli in partita.',
@@ -562,7 +562,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Il leader propone un team; tutti votano approvazione o rifiuto.',
           'Se il team passa, i membri in missione giocano successo/fallimento coperto e si rivela lesito.',
@@ -582,7 +582,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   'the-wandering-towers': {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Prepara il percorso, le torri, i maghi di tutti i colori e il materiale pozioni/carte.',
           'Ogni giocatore riceve la mano iniziale e mette i propri maghi nelle posizioni di partenza previste.',
@@ -590,7 +590,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Nel turno giochi una carta o lazione prevista per muovere un mago o una torre.',
           'L interazione nasce dal coprire, liberare o trascinare pezzi, aprendo scorciatoie o rallentamenti.',
@@ -610,7 +610,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   'windmill-valley': {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Prepara plancia principale, mercato / contratti, tessere comuni e moduli base.',
           'Ogni giocatore prende la propria plancia mulino, risorse iniziali e materiale personale.',
@@ -618,7 +618,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Nel turno ruoti il mulino, crei la combinazione di azioni disponibile e ne esegui quella scelta.',
           'Le azioni alimentano piantagione, raccolta, contratti, upgrade e avanzamento sul motore personale.',
@@ -638,7 +638,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   '7-wonders-duel': {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Prepara le tre strutture di carte per Era I, II e III secondo lo schema del regolamento, con alcune carte coperte.',
           'Date a ciascuno 4 meraviglie tramite draft e preparate monete, segnalino conflitto e token progresso.',
@@ -646,7 +646,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Nel turno prendi una carta accessibile dalla struttura e la usi per costruire, scartare per monete o costruire una meraviglia.',
           'Alcune carte fanno avanzare il conflitto, altre danno simboli scienza o sconti permanenti.',
@@ -666,7 +666,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   azul: {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Prepara le fabbriche in numero corretto, riempi il sacchetto e dai a ciascuno una plancia con il lato scelto.',
           'Metti il segnalino primo giocatore al centro insieme alle tessere che andranno nel mercato comune.',
@@ -674,7 +674,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Nel turno scegli tutte le tessere di un colore da una fabbrica o dal centro e le metti in una sola linea preparazione.',
           'Le tessere che non entrano nella linea vanno sul pavimento e fanno malus.',
@@ -694,7 +694,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   bang: {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Assegna i ruoli, rivela solo lo Sceriffo e distribuisci i personaggi con i rispettivi punti vita.',
           'Mescola il mazzo, dai le carte iniziali e prepara gli scarti raggiungibili da tutti.',
@@ -702,7 +702,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Nel tuo turno peschi 2 carte, giochi quante carte legali vuoi e poi scarti fino al limite punti vita.',
           'Le carte principali sono attacchi, equipaggiamenti, recupero vita e azioni immediate.',
@@ -722,7 +722,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   carcassonne: {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Metti la tessera iniziale al centro, mescola tutte le altre e dai a ciascuno i meeple del proprio colore.',
           'Lascia il punteggio visibile e chiarisci se state giocando base pura o con espansioni.',
@@ -730,7 +730,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Nel turno peschi una tessera e la piazzi in modo legale accostando lati compatibili.',
           'Poi puoi mettere un meeple su un elemento della tessera appena giocata se quell elemento non e gia occupato nella struttura collegata.',
@@ -750,7 +750,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   concept: {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Apri il tabellone delle icone, prepara cubetti e token e scegli se giocare con punti o in modalita libera.',
           'Dividetevi in coppie o squadre secondo il numero di giocatori.',
@@ -758,7 +758,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Chi deve far indovinare sceglie il concetto segreto e piazza il marcatore principale sull idea centrale.',
           'Usa poi cubetti secondari per aggiungere attributi, categorie o dettagli utili.',
@@ -778,7 +778,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   cryptid: {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Costruite la mappa corretta, distribuite a ciascuno una carta indizio e preparate cubi e dischi del proprio colore.',
           'Assicuratevi che tutti sappiano orientamento della mappa e significato di terreni e strutture.',
@@ -786,7 +786,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Nel turno puoi interrogare un altro giocatore su una casella oppure fare una ricerca tu stesso.',
           'Le risposte pubbliche aggiungono dischi o cubi che restringono il numero di caselle possibili.',
@@ -806,7 +806,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   dixit: {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Date a ciascuno una mano di carte, coniglio segnapunti e gettoni voto nel proprio colore.',
           'Preparate il tracciato punteggio e chiarite quanti gettoni usa ogni giocatore in base al tavolo.',
@@ -814,7 +814,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Il narratore sceglie una carta della mano e dice un indizio, parola o frase, senza mostrarla.',
           'Gli altri scelgono una carta della propria mano che potrebbe adattarsi all indizio; poi si mischiano e si rivelano.',
@@ -834,7 +834,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   'dune-imperium': {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Prepara tabellone, mercato imperium, leader, risorse e mazzi conflitto/intrigo secondo il setup base.',
           'Ogni giocatore sceglie un leader, prende deck iniziale, 2 agenti e dotazione di partenza.',
@@ -842,7 +842,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'A turno giochi una carta dalla mano per mandare un agente in uno spazio compatibile con le icone di accesso.',
           'Quando hai finito gli agenti, fai il reveal delle carte rimaste per ottenere persuasione e forza extra, poi compri dal mercato se puoi.',
@@ -862,7 +862,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   'harry-potter-hogwarts-battle': {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Scegli l anno/scatola da giocare, prepara eroi, mazzo iniziale, mercato Hogwarts, luoghi e mazzo oscurita corrispondenti.',
           'Ogni giocatore prende il proprio eroe con segnalini salute e deck iniziale.',
@@ -870,7 +870,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Nel turno riveli eventi oscurita, risolvi eventuali effetti, giochi le carte della mano e spendi risorse per attaccare, curare o comprare nuove carte.',
           'I nemici vanno eliminati collaborando mentre difendete i luoghi dal controllo nemico.',
@@ -890,7 +890,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   'heat-pedal-to-the-metal': {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Scegli il circuito, prepara le auto, dai a ciascuno il mazzo base e i componenti della plancia pilota.',
           'Posiziona le macchine in griglia e chiarisci subito il significato delle marce e della pila heat.',
@@ -898,7 +898,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Ogni round selezioni la marcia, peschi il numero corretto di carte, ne giochi una come accelerazione e muovi di quel totale.',
           'Puoi spendere heat per spingere oltre o per gestire meglio alcuni momenti chiave.',
@@ -918,7 +918,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   'hues-and-cues': {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Apri la plancia dei colori, date i segnalini ai giocatori e scegliete come ruota il clue giver.',
           'Assicuratevi che tutti vedano bene la griglia; da mobile o luce scarsa il gioco peggiora molto.',
@@ -926,7 +926,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Il clue giver guarda il target segreto e da il primo indizio verbale legale.',
           'Gli altri piazzano un segnalino sul colore che credono corretto; poi arriva il secondo indizio e un eventuale aggiustamento/secondo segnalino.',
@@ -946,7 +946,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   'insalata-di-punti': {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Forma il mercato con i mazzi/tagli corretti e mostra chiaramente le due carte ortaggio visibili per pila se usate la disposizione standard.',
           'Spiega che ogni carta ha due lati: uno punteggio e uno ortaggio.',
@@ -954,7 +954,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Nel turno prendi due carte ortaggio visibili dello stesso gruppo oppure una singola carta punteggio dal lato scoring.',
           'Le carte ortaggio vanno tenute dal lato prodotto; le carte punteggio restano sul lato obiettivo.',
@@ -974,7 +974,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   orleans: {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Prepara tabellone, mappa, eventi di round, merci e componenti personali secondo il numero di giocatori.',
           'Ogni giocatore prende la propria plancia, seguaci iniziali e sacca.',
@@ -982,7 +982,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Ogni round si rivela un evento, poi i giocatori pescano seguaci dalla sacca e li assegnano agli spazi azione della plancia.',
           'Quando un azione e completata con i seguaci richiesti, la risolvi e ottieni movimento, merci, nuovi seguaci, tech o avanzamenti.',
@@ -1002,7 +1002,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   perudo: {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Date a ciascuno il bicchiere e il numero corretto di dadi, poi tutti lanciano coperti.',
           'Scegliete se giocate con regole base o varianti tipo palifico e chiaritele prima di iniziare.',
@@ -1010,7 +1010,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Il giocatore di turno fa una dichiarazione sul numero totale di dadi di un certo valore presenti sotto tutti i bicchieri.',
           'Il turno successivo deve rilanciare in modo legale oppure dire che la chiamata precedente e falsa.',
@@ -1030,7 +1030,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   'procioni-in-cassa-4': {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Prepara il mazzo, i componenti bottino e l eventuale area comune di scarto o refurtiva secondo il regolamento.',
           'Dai a ciascuno la dotazione iniziale prevista e chiarisci subito come si tiene il bottino sicuro rispetto a quello ancora a rischio.',
@@ -1038,7 +1038,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Nel turno o nella fase comune continui a rivelare / giocare carte cercando di aumentare il bottino senza saltare.',
           'A un certo punto puoi fermarti e mettere al sicuro quello che hai raccolto, oppure rischiare ancora per guadagnare di piu.',
@@ -1058,7 +1058,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   sagrada: {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Ogni giocatore prende una finestra, una plancia supporto e i marker favore richiesti dal pattern scelto.',
           'Prepara sacchetto dadi, tracciato round, obiettivi comuni e tool cards selezionate.',
@@ -1066,7 +1066,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'In ordine di snake draft i giocatori scelgono un dado dal pool e lo piazzano legalmente sulla propria finestra.',
           'Durante la partita puoi spendere marker favore per usare le tool cards e piegare alcune regole in modo controllato.',
@@ -1086,7 +1086,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   seasons: {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Fate il draft iniziale delle carte e costruite i mazzi personali secondo la procedura base del gioco.',
           'Preparate i dadi stagione, il calendario e le energie comuni.',
@@ -1094,7 +1094,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'A inizio stagione si tirano i dadi disponibili; in ordine i giocatori ne scelgono uno ottenendo energia, carte, cristalli o avanzamento del tempo.',
           'Nel proprio turno possono anche evocare carte, usare poteri e convertire risorse secondo gli effetti in gioco.',
@@ -1114,7 +1114,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   scythe: {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Assegna a ciascuno una fazione e una plancia giocatore, prepara mappa, risorse, encounter, obiettivi e automa se usato.',
           'Posizionate worker, leader, mecha iniziali e componenti secondo il setup di fazione/plancia.',
@@ -1122,7 +1122,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Nel turno scegli una colonna diversa da quella usata nel turno precedente e risolvi prima l azione alta e poi, se vuoi e puoi, quella bassa.',
           'Le azioni fanno muovere, produrre, commerciare, rafforzarsi, costruire mecha, edifici, reclute e upgrade.',
@@ -1142,7 +1142,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   'sky-team': {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Scegli l aeroporto/scenario, prepara la plancia con i moduli richiesti e distribuisci i ruoli ai due piloti.',
           'Date a ciascuno i propri dadi e chiarite quali aree della cabina gestisce ciascun giocatore.',
@@ -1150,7 +1150,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Ogni round tirate i dadi, poi li piazzate a turno negli strumenti della cabina per regolare inclinazione, velocita, radio, flap, freni e altro.',
           'Dopo il piazzamento completo si risolvono gli effetti e si controlla se l aereo resta stabile e se avanza correttamente verso la pista.',
@@ -1170,7 +1170,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   talisman: {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Prepara tabellone, carte avventura/incantesimo, segnalini e personaggi con le rispettive schede.',
           'Ogni giocatore prende un personaggio, segnalini vita/forza/astuzia e la dotazione iniziale indicata.',
@@ -1178,7 +1178,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Nel turno lanci il dado, muovi in una delle direzioni consentite e risolvi lo spazio di arrivo o le carte che li si pescano.',
           'Combatti nemici, prendi oggetti, guadagni statistiche e cerchi modi per superare le soglie verso la regione interna.',
@@ -1198,7 +1198,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   'terraforming-mars': {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Prepara tabellone Marte, mazzi progetto, corporation, risorse e tracciati temperatura, ossigeno e oceani.',
           'Ogni giocatore sceglie corporation e mano iniziale secondo la modalita base o draft usata.',
@@ -1206,7 +1206,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Ogni generazione inizia con ricerca carte, poi si fanno a turno una o due azioni finche tutti passano.',
           'Le azioni principali sono giocare carte, usare azioni stampate, standard projects e piazzare tessere quando gli effetti lo permettono.',
@@ -1226,7 +1226,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
   unlock: {
     recapSections: [
       {
-        title: 'Setup rapido',
+        title: 'Setup',
         items: [
           'Scegliete lo scenario, aprite solo il mazzo richiesto e preparate l app con la missione corretta.',
           'Mettete la carta iniziale e tenete il resto del mazzo ordinato per numero.',
@@ -1234,7 +1234,7 @@ export const BOARD_GAME_RECAPS: Record<string, BoardGameRecap> = {
         ],
       },
       {
-        title: 'Come gira',
+        title: 'Turni',
         items: [
           'Esplorate le carte disponibili, combinate numeri o oggetti quando ha senso e inserite nell app codici o risultati di puzzle.',
           'L app scandisce il tempo e gestisce penalita, indizi e alcuni enigmi speciali.',
