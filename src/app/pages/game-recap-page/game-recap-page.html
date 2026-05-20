@@ -23,7 +23,7 @@
           <div class="facts-grid" aria-label="Informazioni rapide sul gioco">
             <div>
               <span>Giocatori</span>
-              <strong>{{ selectedGame.players }}</strong>
+              <strong>{{ getPlayersSummary(selectedGame) }}</strong>
             </div>
             <div>
               <span>Best</span>
@@ -31,7 +31,7 @@
             </div>
             <div>
               <span>Durata</span>
-              <strong>{{ selectedGame.duration }}</strong>
+              <strong>{{ getDurationSummary(selectedGame) }}</strong>
             </div>
             <div>
               <span>Peso</span>

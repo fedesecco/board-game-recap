@@ -3,6 +3,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { map } from 'rxjs';
 import { getBoardGameBySlug } from '../../data/board-games';
+import { BoardGame } from '../../models/board-game';
 
 @Component({
   selector: 'app-game-recap-page',
@@ -27,11 +28,23 @@ export class GameRecapPageComponent {
       return [];
     }
 
-    return selectedGame.recapSections.map((section) => ({
+    return selectedGame.recap.sections.map((section) => ({
       ...section,
       items: this.expandBulletItems(section.items),
     }));
   });
+
+  protected getPlayersSummary(game: BoardGame): string {
+    if (game.minPlayers === null || game.maxPlayers === null) {
+      return 'Giocatori n/d';
+    }
+
+    return `${game.minPlayers}-${game.maxPlayers} giocatori`;
+  }
+
+  protected getDurationSummary(game: BoardGame): string {
+    return game.playTime;
+  }
 
   private expandBulletItems(items: string[]): string[] {
     return items.flatMap((item) =>

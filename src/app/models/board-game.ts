@@ -3,6 +3,10 @@ export interface BoardGameRecapSection {
   items: string[];
 }
 
+export interface BoardGameRecap {
+  sections: BoardGameRecapSection[];
+}
+
 export enum Tag {
   Play26 = 'play-2026',
   Cooperative = 'cooperative',
@@ -18,18 +22,15 @@ export interface BoardGame {
   bggUrl: string | null;
   slug: string;
   title: string;
-  tagline: string;
   category: string;
   minPlayers: number | null;
   maxPlayers: number | null;
   bestPlayers: string;
   playTime: string;
-  players: string;
-  duration: string;
   complexity: string;
   year: number;
   accentColor: string;
   coverUrl: string;
   tags: Tag[];
-  recapSections: BoardGameRecapSection[];
+  recap: BoardGameRecap;
 }
