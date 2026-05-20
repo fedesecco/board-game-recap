@@ -161,7 +161,15 @@
           [attr.aria-label]="getGameLabel(game.title)"
           [attr.title]="game.title"
         >
-          <img class="game-cover" [src]="game.coverUrl" [alt]="'Cover di ' + game.title" />
+          <img
+            class="game-cover"
+            [src]="game.coverUrl"
+            [alt]="'Cover di ' + game.title"
+            width="320"
+            height="384"
+            loading="lazy"
+            decoding="async"
+          />
 
           <div class="game-meta">
             <h2 class="game-title">{{ game.title }}</h2>
