@@ -1,9 +1,8 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { BOARD_GAMES } from '../../data/board-games';
 import { BoardGame, Tag } from '../../models/board-game';
-
-type ComplexityBand = '0-1' | '1-2' | '2-3' | '3-4' | '4+';
+import { ComplexityBand, HomeFiltersService } from '../../services/home-filters.service';
 
 @Component({
   selector: 'app-home-page',
@@ -12,16 +11,10 @@ type ComplexityBand = '0-1' | '1-2' | '2-3' | '3-4' | '4+';
   styleUrl: './home-page.css',
 })
 export class HomePageComponent {
+  private readonly homeFilters = inject(HomeFiltersService);
+
   protected readonly games = BOARD_GAMES;
-  protected readonly query = signal('');
-  protected readonly filtersOpen = signal(false);
-  protected readonly tagsOpen = signal(false);
-  protected readonly complexityOpen = signal(false);
-  protected readonly playersFilter = signal('');
-  protected readonly bestPlayersFilter = signal('');
-  protected readonly durationFilter = signal('');
-  protected readonly selectedComplexityBands = signal<ComplexityBand[]>([]);
-  protected readonly selectedTags = signal<Tag[]>([]);
+  protected readonly filterForm = this.homeFilters.form;
   protected readonly complexityOptions: ComplexityBand[] = ['0-1', '1-2', '2-3', '3-4', '4+'];
   protected readonly complexityLabels: Record<ComplexityBand, string> = {
     '0-1': '0-1',
@@ -73,7 +66,7 @@ export class HomePageComponent {
     return ordered;
   });
   protected readonly tagTriggerLabel = computed(() => {
-    const selected = this.selectedTags();
+    const selected = this.filterForm().selectedTags;
 
     if (selected.length === 0) {
       return 'Tutti';
@@ -86,7 +79,7 @@ export class HomePageComponent {
     return `${selected.length} selezionati`;
   });
   protected readonly complexityTriggerLabel = computed(() => {
-    const selected = this.selectedComplexityBands();
+    const selected = this.filterForm().selectedComplexityBands;
 
     if (selected.length === 0) {
       return 'Qualsiasi';
@@ -99,12 +92,13 @@ export class HomePageComponent {
     return `${selected.length} selezionati`;
   });
   protected readonly filteredGames = computed(() => {
-    const normalizedQuery = this.query().trim().toLowerCase();
-    const playersFilter = Number(this.playersFilter() || 0);
-    const bestPlayersFilter = Number(this.bestPlayersFilter() || 0);
-    const durationFilter = Number(this.durationFilter() || 0);
-    const selectedComplexityBands = this.selectedComplexityBands();
-    const selectedTags = this.selectedTags();
+    const form = this.filterForm();
+    const normalizedQuery = form.query.trim().toLowerCase();
+    const playersFilter = Number(form.players || 0);
+    const bestPlayersFilter = Number(form.bestPlayers || 0);
+    const durationFilter = Number(form.duration || 0);
+    const selectedComplexityBands = form.selectedComplexityBands;
+    const selectedTags = form.selectedTags;
 
     return [...this.games]
       .filter((game) => {
@@ -139,54 +133,50 @@ export class HomePageComponent {
 
   protected updateQuery(event: Event): void {
     const target = event.target as HTMLInputElement;
-    this.query.set(target.value);
+    this.homeFilters.updateTextField('query', target.value);
   }
 
   protected toggleFilters(): void {
-    this.filtersOpen.update((open) => !open);
+    this.homeFilters.toggleFlag('filtersOpen');
   }
 
   protected toggleTagsOpen(): void {
-    this.tagsOpen.update((open) => !open);
+    this.homeFilters.toggleFlag('tagsOpen');
   }
 
   protected toggleComplexityOpen(): void {
-    this.complexityOpen.update((open) => !open);
+    this.homeFilters.toggleFlag('complexityOpen');
   }
 
   protected updatePlayersFilter(event: Event): void {
     const target = event.target as HTMLSelectElement;
-    this.playersFilter.set(target.value);
+    this.homeFilters.updateTextField('players', target.value);
   }
 
   protected updateBestPlayersFilter(event: Event): void {
     const target = event.target as HTMLSelectElement;
-    this.bestPlayersFilter.set(target.value);
+    this.homeFilters.updateTextField('bestPlayers', target.value);
   }
 
   protected updateDurationFilter(event: Event): void {
     const target = event.target as HTMLSelectElement;
-    this.durationFilter.set(target.value);
+    this.homeFilters.updateTextField('duration', target.value);
   }
 
   protected toggleComplexityBand(band: ComplexityBand): void {
-    this.selectedComplexityBands.update((bands) =>
-      bands.includes(band) ? bands.filter((currentBand) => currentBand !== band) : [...bands, band],
-    );
+    this.homeFilters.toggleComplexityBand(band);
   }
 
   protected hasComplexityBandSelected(band: ComplexityBand): boolean {
-    return this.selectedComplexityBands().includes(band);
+    return this.filterForm().selectedComplexityBands.includes(band);
   }
 
   protected toggleTag(tag: Tag): void {
-    this.selectedTags.update((tags) =>
-      tags.includes(tag) ? tags.filter((currentTag) => currentTag !== tag) : [...tags, tag],
-    );
+    this.homeFilters.toggleTag(tag);
   }
 
   protected hasTagSelected(tag: Tag): boolean {
-    return this.selectedTags().includes(tag);
+    return this.filterForm().selectedTags.includes(tag);
   }
 
   protected getGameLabel(title: string): string {

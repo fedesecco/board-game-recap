@@ -8,7 +8,7 @@
       </svg>
       <input
         type="search"
-        [value]="query()"
+        [value]="filterForm().query"
         (input)="updateQuery($event)"
         placeholder="Cerca un gioco"
       />
@@ -17,7 +17,7 @@
     <button
       class="filters-toggle"
       type="button"
-      [attr.aria-expanded]="filtersOpen()"
+      [attr.aria-expanded]="filterForm().filtersOpen"
       aria-controls="catalog-filters"
       (click)="toggleFilters()"
     >
@@ -32,12 +32,12 @@
     <div
       id="catalog-filters"
       class="filters-row"
-      [class.filters-row--open]="filtersOpen()"
+      [class.filters-row--open]="filterForm().filtersOpen"
       aria-label="Filtri catalogo"
     >
       <label class="filter-field">
         <span>Giocatori</span>
-        <select [value]="playersFilter()" (change)="updatePlayersFilter($event)">
+        <select [value]="filterForm().players" (change)="updatePlayersFilter($event)">
           <option value="">Tutti</option>
           <option value="1">1+</option>
           <option value="2">2</option>
@@ -51,7 +51,7 @@
 
       <label class="filter-field">
         <span>Best con</span>
-        <select [value]="bestPlayersFilter()" (change)="updateBestPlayersFilter($event)">
+        <select [value]="filterForm().bestPlayers" (change)="updateBestPlayersFilter($event)">
           <option value="">Tutti</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -63,7 +63,7 @@
 
       <label class="filter-field">
         <span>Durata max</span>
-        <select [value]="durationFilter()" (change)="updateDurationFilter($event)">
+        <select [value]="filterForm().duration" (change)="updateDurationFilter($event)">
           <option value="">Qualsiasi</option>
           <option value="20">20 min</option>
           <option value="30">30 min</option>
@@ -78,7 +78,7 @@
         <button
           class="filter-select-trigger"
           type="button"
-          [attr.aria-expanded]="complexityOpen()"
+          [attr.aria-expanded]="filterForm().complexityOpen"
           aria-controls="complexity-filter-panel"
           (click)="toggleComplexityOpen()"
         >
@@ -90,7 +90,7 @@
           </svg>
         </button>
 
-        @if (complexityOpen()) {
+        @if (filterForm().complexityOpen) {
           <div
             id="complexity-filter-panel"
             class="filter-select-panel"
@@ -118,7 +118,7 @@
         <button
           class="filter-select-trigger"
           type="button"
-          [attr.aria-expanded]="tagsOpen()"
+          [attr.aria-expanded]="filterForm().tagsOpen"
           aria-controls="tag-filter-panel"
           (click)="toggleTagsOpen()"
         >
@@ -130,7 +130,7 @@
           </svg>
         </button>
 
-        @if (tagsOpen()) {
+        @if (filterForm().tagsOpen) {
           <div id="tag-filter-panel" class="filter-select-panel" aria-label="Filtro tag">
             <div class="filter-select-list">
               @for (tag of tagOptions(); track tag) {
